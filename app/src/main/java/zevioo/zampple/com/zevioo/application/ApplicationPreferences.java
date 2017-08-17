@@ -3,38 +3,15 @@ package zevioo.zampple.com.zevioo.application;
 import android.content.Context;
 import android.content.SharedPreferences;
 
-import innovativeapplications.awarenesslibrary.ConfigurationValues;
-
 /**
- * Created by kgiannoulis on 26/4/2016
+ * Created by kgiannoulis on 10/8/2017
  */
 public class ApplicationPreferences {
-
-    public static final String DOWNLOAD_STEP_INDEX_PREF_KEY = "downloadStepIndex";
-    public static final String DOWNLOAD_QUEUE_PREF_KEY = "downloadQueue";
-    public static final String CURRENT_VERSION_CODE = "currentVersionCode";
-    public static final String MAP_RESOURCES_UPDATE_NEEDED = "mapResourcesUpdateNeeded";
-
     /**
      * personal preferences keys
      */
-    public static final String ContractID = "ContractID";
-    public static final String ContractPrice = "ContractPrice";
     public static final String CID = "CID";
-    public static final String VID = "VID";
-    public static final String FNM = "FNM";
-    public static final String LNM = "LNM";
-    public static final String ORI = "ORI";
-    public static final String OCC = "OCC";
-    public static final String PHN = "PHN";
-    public static final String EML = "EML";
-    public static final String IMEI = "IMEI";
-    public static final String LASTTIMESTAMP = "lastTimeStamp";
-    public static final String MAC = "MAC";
-    public static final String MID = "MID";
     public static final String LOGGEDIN = "logged";
-    public static final String SYNC_PUSH = "sync_push";
-    public static final String COUNTRY_CODE = "code_country";
 
 
     /**
@@ -113,11 +90,6 @@ public class ApplicationPreferences {
             return applicationPrefs.getInt(key, 0);
         }
     }
-
-    public int getIntPreference(String key) {
-        return prefs.getInt(key, 0);
-    }
-
     public String getStringPreference(String name, String key) {
         if (name.equalsIgnoreCase(PREFS_NAME)) {
             return prefs.getString(key, "");
@@ -128,23 +100,6 @@ public class ApplicationPreferences {
         } else {
             return applicationPrefs.getString(key, "");
         }
-    }
-
-    public double getLoudThreshold(){
-        return Double.parseDouble(applicationPrefs.getString(NOISE, "0.0"));
-    }
-
-    public void updateLoudThreshold(double value){
-        String result = String.valueOf(value);
-        saveStringPreference(APPLICATION_PREFS,NOISE,result);
-    }
-
-    public int getNotificationsTotal(){
-        return applicationPrefs.getInt(NOTIFICATIONS, 0);
-    }
-
-    public int getVersion() {
-        return prefs.getInt(ConfigurationValues.OS, ConfigurationValues.VERSION);
     }
 
     public long getLongPreference(String name, String key) {
@@ -159,21 +114,6 @@ public class ApplicationPreferences {
         }
     }
 
-    public void firstTime(){
-        if (prefs.getBoolean("firstTime",true)){
-            saveBooleanPreference(PREFS_NAME,"firstTime",false);
-        } else {
-            if (!prefs.getBoolean("secondTime",false)){
-                saveBooleanPreference(PREFS_NAME,"secondTime",true);
-            }
-        }
-    }
-
-    public boolean isSecondTime(){
-        return prefs.getBoolean("secondTime",false);
-    }
-
-
     public boolean getBooleanPreference(String name, String key) {
         if (name.equalsIgnoreCase(PREFS_NAME)) {
             return prefs.getBoolean(key, false);
@@ -184,37 +124,6 @@ public class ApplicationPreferences {
         } else {
             return applicationPrefs.getBoolean(key, false);
         }
-    }
-
-    public boolean getBooleanPreferenceOptimize(String name, String key) {
-        if (name.equalsIgnoreCase(PREFS_NAME)) {
-            return prefs.getBoolean(key, true);
-        } else if (name.equalsIgnoreCase(PERSONAL_PREFS)) {
-            return personalPrefs.getBoolean(key, true);
-        } else if (name.equalsIgnoreCase(CONTRACT_PREFS)) {
-            return contractPrefs.getBoolean(key, true);
-        } else {
-            return applicationPrefs.getBoolean(key, true);
-        }
-    }
-
-    public boolean getBooleanPreference(String key) {
-        return prefs.getBoolean(key, false);
-    }
-
-    public String getStringPreference(String key) {
-        return prefs.getString(key, "");
-    }
-
-
-    public void saveDownloadStepPreference(int downloadStepIndex) {
-        prefsEditor.putInt(DOWNLOAD_STEP_INDEX_PREF_KEY, downloadStepIndex);
-        prefsEditor.commit();
-    }
-
-    public void setCurrentVersionCode(int versionCode) {
-        prefsEditor.putInt(CURRENT_VERSION_CODE, versionCode);
-        prefsEditor.commit();
     }
 
     public void saveStringPreference(String name, String key, String value) {
@@ -279,11 +188,6 @@ public class ApplicationPreferences {
             applicationPrefsEditor.putBoolean(key, value);
             applicationPrefsEditor.commit();
         }
-    }
-
-    public void saveBooleanPreference(String key, boolean value) {
-        prefsEditor.putBoolean(key, value);
-        prefsEditor.commit();
     }
 
 
