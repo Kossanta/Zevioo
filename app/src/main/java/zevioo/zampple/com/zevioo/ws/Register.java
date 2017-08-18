@@ -11,10 +11,11 @@ import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.io.OutputStreamWriter;
 import java.net.URL;
-import java.util.Map;
 
 import javax.net.ssl.HttpsURLConnection;
 import javax.net.ssl.SSLHandshakeException;
+
+import zevioo.zampple.com.zevioo.κουτί.entity.Profile;
 
 
 /**
@@ -24,11 +25,11 @@ public class Register extends AsyncTask<Void, Void, Void> {
 
     private String mRequest;
     private WSInformer mInformer;
-    private Map<String, Object> mRequestList;
+    private Profile mProfile;
 
-    public Register(WSInformer wsInformer, Map<String, Object> requestList) {
+    public Register(WSInformer wsInformer, Profile profile) {
         this.mInformer = wsInformer;
-        this.mRequestList = requestList;
+        this.mProfile = profile;
     }
 
     public void init() {
@@ -107,13 +108,12 @@ public class Register extends AsyncTask<Void, Void, Void> {
 
 
     private String getRequest() {
-        JSONObject request = new JSONObject();
         try {
-            request = getRequest1();
+            return mProfile.toJSON().toString();
         } catch (JSONException e) {
             e.printStackTrace();
         }
-        return request.toString();
+        return "";
     }
 
 
@@ -126,7 +126,7 @@ public class Register extends AsyncTask<Void, Void, Void> {
      * "LNG": "f721cb6f-0eed-48ff-a0d0-1021db054000",
      * "EML": "spkaisaris@gmail.com",
      * "PSW": "12345678"
-     *
+     * <p>
      * Property Names:
      * NCM = Nickname
      * DTX = Describe text
@@ -136,36 +136,5 @@ public class Register extends AsyncTask<Void, Void, Void> {
      * LNG = Language ID
      * EML = E-mail
      * PSW = Password
-     *
      */
-    private JSONObject getRequest1() throws JSONException {
-        JSONObject object = new JSONObject();
-        if (mRequestList.containsKey("NCM")) {
-            object.put("NCM", mRequestList.get("NCM"));
-        }
-        if (mRequestList.containsKey("DTX")) {
-            object.put("DTX", mRequestList.get("DTX"));
-        }
-        if (mRequestList.containsKey("GN")) {
-            object.put("GN", mRequestList.get("GN"));
-        }
-        if (mRequestList.containsKey("DOB")) {
-            object.put("DOB", mRequestList.get("DOB"));
-        }
-        if (mRequestList.containsKey("CTR")) {
-            object.put("CTR", mRequestList.get("CTR"));
-        }
-        if (mRequestList.containsKey("LNG")) {
-            object.put("LNG", mRequestList.get("LNG"));
-        }
-        if (mRequestList.containsKey("EML")) {
-            object.put("EML", mRequestList.get("EML"));
-        }
-        if (mRequestList.containsKey("PSW")) {
-            object.put("PSW", mRequestList.get("PSW"));
-        }
-        return object;
-    }
-
-
 }

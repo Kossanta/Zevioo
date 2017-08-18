@@ -136,7 +136,6 @@ public class CheckVFCode extends AsyncTask<Void, Void, Void> {
         JSONObject object = new JSONObject();
         ApplicationPreferences mPreferences = ((ApplicationClass) mContext.getApplicationContext()).getAppPrefs();
         object.put(ApplicationPreferences.CID, mPreferences.getStringPreference(ApplicationPreferences.PERSONAL_PREFS, ApplicationPreferences.CID));
-        // TODO load it from database
         if (mRequestList.containsKey("VL")) {
             object.put("VL", mRequestList.get("VL"));
         }

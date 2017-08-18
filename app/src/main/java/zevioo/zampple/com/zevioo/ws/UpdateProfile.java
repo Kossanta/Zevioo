@@ -19,6 +19,7 @@ import javax.net.ssl.SSLHandshakeException;
 
 import zevioo.zampple.com.zevioo.application.ApplicationClass;
 import zevioo.zampple.com.zevioo.application.ApplicationPreferences;
+import zevioo.zampple.com.zevioo.κουτί.entity.Profile;
 
 
 /**
@@ -28,12 +29,12 @@ public class UpdateProfile extends AsyncTask<Void, Void, Void> {
 
     private String mRequest;
     private WSInformer mInformer;
-    private Map<String, Object> mRequestList;
+    private Profile mProfile;
     private Context mContext;
 
-    public UpdateProfile(WSInformer wsInformer, Map<String, Object> requestList, Context context) {
+    public UpdateProfile(WSInformer wsInformer, Profile profile, Context context) {
         this.mInformer = wsInformer;
-        this.mRequestList = requestList;
+        this.mProfile = profile;
         this.mContext = context;
     }
 
@@ -113,13 +114,15 @@ public class UpdateProfile extends AsyncTask<Void, Void, Void> {
 
 
     private String getRequest() {
-        JSONObject request = new JSONObject();
         try {
-            request = getRequest1();
+            JSONObject request = mProfile.toJSON();
+            ApplicationPreferences mPreferences = ((ApplicationClass) mContext.getApplicationContext()).getAppPrefs();
+            request.put(ApplicationPreferences.CID, mPreferences.getStringPreference(ApplicationPreferences.PERSONAL_PREFS, ApplicationPreferences.CID));
+            return request.toString();
         } catch (JSONException e) {
             e.printStackTrace();
         }
-        return request.toString();
+        return "";
     }
 
 
@@ -146,36 +149,4 @@ public class UpdateProfile extends AsyncTask<Void, Void, Void> {
      * PSW = Password
      *
      */
-    private JSONObject getRequest1() throws JSONException {
-        JSONObject object = new JSONObject();
-        ApplicationPreferences mPreferences = ((ApplicationClass) mContext.getApplicationContext()).getAppPrefs();
-        object.put(ApplicationPreferences.CID, mPreferences.getStringPreference(ApplicationPreferences.PERSONAL_PREFS, ApplicationPreferences.CID));
-        if (mRequestList.containsKey("NCM")) {
-            object.put("NCM", mRequestList.get("NCM"));
-        }
-        if (mRequestList.containsKey("DTX")) {
-            object.put("DTX", mRequestList.get("DTX"));
-        }
-        if (mRequestList.containsKey("GN")) {
-            object.put("GN", mRequestList.get("GN"));
-        }
-        if (mRequestList.containsKey("DOB")) {
-            object.put("DOB", mRequestList.get("DOB"));
-        }
-        if (mRequestList.containsKey("CTR")) {
-            object.put("CTR", mRequestList.get("CTR"));
-        }
-        if (mRequestList.containsKey("LNG")) {
-            object.put("LNG", mRequestList.get("LNG"));
-        }
-        if (mRequestList.containsKey("EML")) {
-            object.put("EML", mRequestList.get("EML"));
-        }
-        if (mRequestList.containsKey("PSW")) {
-            object.put("PSW", mRequestList.get("PSW"));
-        }
-        return object;
-    }
-
-
 }
