@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="start_register">Εγγραφή με email</string>
+    <string name="start_login">Είστε ήδη μέλος;</string>
+    <string name="start_page_0_title">Δείτε αληθινές &amp; χρήσιμες αξιολογήσεις.</string>
+    <string name="start_page_1_title">Ανακαλύψτε που προϊόντα που σας ταιριάζουν απόλυτα!</string>
+    <string name="start_page_2_title">Μοιραστείτε εμπειρίες &amp; αποκτήστε οπαδούς.</string>
+</resources>

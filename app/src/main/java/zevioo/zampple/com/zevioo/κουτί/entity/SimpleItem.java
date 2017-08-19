@@ -1,6 +1,7 @@
 package zevioo.zampple.com.zevioo.κουτί.entity;
 
 import android.arch.persistence.room.Entity;
+import android.arch.persistence.room.Index;
 import android.arch.persistence.room.PrimaryKey;
 
 import org.json.JSONObject;
@@ -8,7 +9,8 @@ import org.json.JSONObject;
 /**
  * Created by kgiannoulis on 10/8/2017
  */
-@Entity(tableName = "SimpleItem")
+@Entity(tableName = "SimpleItem",indices = {@Index(value = {"item_id"},
+        unique = true)})
 public class SimpleItem {
 
     @PrimaryKey(autoGenerate = true)

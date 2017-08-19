@@ -44,7 +44,7 @@ public interface ProfileDAO {
     List<Profile> getAllProfiles();
 
 
-    @Query("SELECT * FROM Areas")
+    @Query("SELECT * FROM Profile")
     LiveData<List<Profile>> findAllProfiles();
 
 

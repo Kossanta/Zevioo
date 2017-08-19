@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:layout_marginTop="32dp"
+        android:gravity="center"
+        android:textSize="18sp"
+        android:id="@+id/subtitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/start_subtitle"/>
+    <android.support.v4.view.ViewPager
+        android:id="@+id/viewpager"
+        android:layout_marginTop="8dp"
+        android:layout_below="@+id/subtitle"
+        android:layout_width="match_parent"
+        android:layout_above="@+id/facebook_btn"
+        android:layout_height="match_parent" />
+    <LinearLayout
+        android:id="@+id/pager_dots"
+        android:layout_width="match_parent"
+        android:layout_height="15dp"
+        android:layout_below="@+id/viewpager"
+        android:background="@android:color/transparent"
+        android:gravity="center_horizontal"
+        android:orientation="horizontal">
+    </LinearLayout>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="72dp"
+        android:text="Facebook login"
+        android:id="@+id/facebook_btn"
+        android:layout_margin="16dp"
+        android:layout_above="@+id/actions"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:id="@+id/actions"
+        android:layout_margin="16dp"
+        android:orientation="horizontal"
+        android:layout_alignParentBottom="true"
+        android:layout_height="wrap_content">
+
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:id="@+id/register"
+            android:layout_height="32dp">
+            <ImageView
+                android:layout_centerVertical="true"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="8dp"
+                app:srcCompat="@drawable/email"
+                android:id="@+id/register_icon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <TextView
+                android:layout_toEndOf="@+id/register_icon"
+                android:layout_width="match_parent"
+                android:gravity="center_vertical"
+                android:text="@string/start_register"
+                android:textSize="12sp"
+                android:layout_height="match_parent" />
+
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:id="@+id/login"
+            android:layout_weight="1"
+            android:layout_height="32dp">
+            <ImageView
+                android:layout_centerVertical="true"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="8dp"
+                app:srcCompat="@drawable/login"
+                android:id="@+id/login_icon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <TextView
+                android:layout_toEndOf="@+id/login_icon"
+                android:text="@string/start_login"
+                android:layout_width="match_parent"
+                android:textSize="12sp"
+                android:gravity="center_vertical"
+                android:layout_height="match_parent" />
+
+
+
+        </RelativeLayout>
+
+
+    </LinearLayout>
+
+</RelativeLayout>

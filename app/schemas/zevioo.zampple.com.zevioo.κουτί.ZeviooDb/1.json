@@ -1,0 +1,165 @@
+{
+  "formatVersion": 1,
+  "database": {
+    "version": 1,
+    "identityHash": "e1710427cede018171cf1c7bd884f728",
+    "entities": [
+      {
+        "tableName": "Profile",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT, `ncm` TEXT, `dtx` TEXT, `cid` TEXT, `gn` TEXT, `dob` INTEGER, `ctr` TEXT, `lng` TEXT, `eml` TEXT, `psw` TEXT, FOREIGN KEY(`ctr`) REFERENCES `SimpleItem`(`item_id`) ON UPDATE NO ACTION ON DELETE CASCADE , FOREIGN KEY(`lng`) REFERENCES `SimpleItem`(`item_id`) ON UPDATE NO ACTION ON DELETE CASCADE )",
+        "fields": [
+          {
+            "fieldPath": "id",
+            "columnName": "id",
+            "affinity": "INTEGER"
+          },
+          {
+            "fieldPath": "nickname",
+            "columnName": "ncm",
+            "affinity": "TEXT"
+          },
+          {
+            "fieldPath": "description",
+            "columnName": "dtx",
+            "affinity": "TEXT"
+          },
+          {
+            "fieldPath": "cid",
+            "columnName": "cid",
+            "affinity": "TEXT"
+          },
+          {
+            "fieldPath": "gender",
+            "columnName": "gn",
+            "affinity": "TEXT"
+          },
+          {
+            "fieldPath": "dob",
+            "columnName": "dob",
+            "affinity": "INTEGER"
+          },
+          {
+            "fieldPath": "countryId",
+            "columnName": "ctr",
+            "affinity": "TEXT"
+          },
+          {
+            "fieldPath": "languageId",
+            "columnName": "lng",
+            "affinity": "TEXT"
+          },
+          {
+            "fieldPath": "email",
+            "columnName": "eml",
+            "affinity": "TEXT"
+          },
+          {
+            "fieldPath": "password",
+            "columnName": "psw",
+            "affinity": "TEXT"
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "id"
+          ],
+          "autoGenerate": true
+        },
+        "indices": [
+          {
+            "name": "index_Profile_ctr",
+            "unique": false,
+            "columnNames": [
+              "ctr"
+            ],
+            "createSql": "CREATE  INDEX `index_Profile_ctr` ON `${TABLE_NAME}` (`ctr`)"
+          },
+          {
+            "name": "index_Profile_lng",
+            "unique": false,
+            "columnNames": [
+              "lng"
+            ],
+            "createSql": "CREATE  INDEX `index_Profile_lng` ON `${TABLE_NAME}` (`lng`)"
+          }
+        ],
+        "foreignKeys": [
+          {
+            "table": "SimpleItem",
+            "onDelete": "CASCADE",
+            "onUpdate": "NO ACTION",
+            "columns": [
+              "ctr"
+            ],
+            "referencedColumns": [
+              "item_id"
+            ]
+          },
+          {
+            "table": "SimpleItem",
+            "onDelete": "CASCADE",
+            "onUpdate": "NO ACTION",
+            "columns": [
+              "lng"
+            ],
+            "referencedColumns": [
+              "item_id"
+            ]
+          }
+        ]
+      },
+      {
+        "tableName": "SimpleItem",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT, `code` TEXT, `item_id` TEXT, `name` TEXT, `type` INTEGER)",
+        "fields": [
+          {
+            "fieldPath": "id",
+            "columnName": "id",
+            "affinity": "INTEGER"
+          },
+          {
+            "fieldPath": "code",
+            "columnName": "code",
+            "affinity": "TEXT"
+          },
+          {
+            "fieldPath": "item_id",
+            "columnName": "item_id",
+            "affinity": "TEXT"
+          },
+          {
+            "fieldPath": "name",
+            "columnName": "name",
+            "affinity": "TEXT"
+          },
+          {
+            "fieldPath": "type",
+            "columnName": "type",
+            "affinity": "INTEGER"
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "id"
+          ],
+          "autoGenerate": true
+        },
+        "indices": [
+          {
+            "name": "index_SimpleItem_item_id",
+            "unique": true,
+            "columnNames": [
+              "item_id"
+            ],
+            "createSql": "CREATE UNIQUE INDEX `index_SimpleItem_item_id` ON `${TABLE_NAME}` (`item_id`)"
+          }
+        ],
+        "foreignKeys": []
+      }
+    ],
+    "setupQueries": [
+      "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, \"e1710427cede018171cf1c7bd884f728\")"
+    ]
+  }
+}
