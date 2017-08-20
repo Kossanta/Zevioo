@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:minHeight="48dp"
+    android:id="@+id/layout">
+    <RelativeLayout
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:minHeight="48dp"
+        android:id="@+id/layer">
+
+
+
+        <RelativeLayout
+            android:layout_marginTop="4dp"
+            android:layout_marginBottom="4dp"
+            android:minHeight="48dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <android.support.v7.widget.AppCompatSpinner
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:imeOptions="actionDone"
+                android:dropDownWidth="200dp"
+                android:textSize="22sp"
+                android:layout_centerVertical="true"
+                android:textColor="@android:color/darker_gray"
+                android:inputType="textPassword"
+                android:background="@android:color/transparent"
+                android:layout_toLeftOf="@+id/error"
+                android:layout_marginRight="8dp"
+                android:id="@+id/data"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="22sp"
+                android:layout_centerVertical="true"
+                android:textColor="@color/red"
+                android:background="@android:color/transparent"
+                android:layout_toLeftOf="@+id/error"
+                android:layout_marginRight="8dp"
+                android:id="@+id/error_msg"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="22sp"
+                android:layout_centerVertical="true"
+                android:textColor="@android:color/darker_gray"
+                android:background="@android:color/transparent"
+                android:layout_toLeftOf="@+id/error"
+                android:layout_marginRight="8dp"
+                android:id="@+id/title"/>
+            <ImageView
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                app:srcCompat="@drawable/error"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:id="@+id/error"/>
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+    <View
+        android:id="@+id/line"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_alignBottom="@+id/layer"
+        android:background="#22000000" />
+</RelativeLayout>

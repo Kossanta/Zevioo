@@ -1,5 +1,6 @@
 package zevioo.zampple.com.zevioo.activity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
@@ -7,6 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 
 import zevioo.zampple.com.zevioo.R;
 import zevioo.zampple.com.zevioo.adapter.StartPagerAdapter;
@@ -17,6 +19,7 @@ public class Start extends AppCompatActivity {
     ViewPager pager;
     LinearLayout pagerDots;
     private ImageView[] ivArrayDotsPager;
+    RelativeLayout login, register;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,6 +27,22 @@ public class Start extends AppCompatActivity {
         setContentView(R.layout.start_activity);
         pager = (ViewPager) findViewById(R.id.viewpager);
         pagerDots = (LinearLayout) findViewById(R.id.pager_dots);
+        login = (RelativeLayout) findViewById(R.id.login);
+        register = (RelativeLayout) findViewById(R.id.register);
+//        login.setClickable(true);
+        register.setClickable(true);
+        login.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(Start.this,LoginActivity.class));
+            }
+        });
+        register.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(Start.this,RegistrationActivity.class));
+            }
+        });
         adapter = new StartPagerAdapter(this);
         pager.setAdapter(adapter);
         setupPagerIndidcatorDots();
