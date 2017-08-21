@@ -10,7 +10,8 @@
         <item name="android:textColorSecondary">#ffffff</item>
     </style>
     <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
-
+        <item name="actionMenuTextColor">@color/colorAccent</item>
+        <item name="android:actionMenuTextColor">@color/colorAccent</item>
         <item name="homeAsUpIndicator">@drawable/back</item>
         <item name="android:windowBackground">@color/colorPrimary</item>
         <item name="colorPrimary">@color/colorPrimary</item>
