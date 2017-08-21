@@ -184,7 +184,7 @@ public class EditView extends RelativeLayout implements View.OnClickListener, Vi
         } else if (mKeyboardType == EMAIL) {
             isValid = isEmailValid(data.getText().toString());
             if (!isValid){
-                showError();
+                error.setVisibility(View.VISIBLE);
             }
         } else if (mKeyboardType == PASSWORD) {
             if (data.getText().toString().length()>=8){
@@ -225,7 +225,6 @@ public class EditView extends RelativeLayout implements View.OnClickListener, Vi
     public void hideError(){
         title.setVisibility(View.VISIBLE);
         data.setVisibility(View.GONE);
-        error.setVisibility(View.GONE);
         error_msg.setVisibility(View.GONE);
     }
 }
