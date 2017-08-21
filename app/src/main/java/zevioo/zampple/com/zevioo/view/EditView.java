@@ -106,6 +106,7 @@ public class EditView extends RelativeLayout implements View.OnClickListener, Vi
         inputType();
         data.setHint(mHint);
         title.setText(mHint);
+        title.setTextColor(ContextCompat.getColor(mContext, R.color.lighter_gray));
     }
 
 
@@ -168,11 +169,14 @@ public class EditView extends RelativeLayout implements View.OnClickListener, Vi
                 str = str + "*";
             }
             title.setText(str);
+            title.setTextColor(ContextCompat.getColor(mContext, R.color.darker_gray));
         } else {
                 title.setText(data.getText().toString());
+            title.setTextColor(ContextCompat.getColor(mContext, R.color.darker_gray));
         }
         if (title.getText().toString().equalsIgnoreCase("")){
             title.setText(mHint);
+            title.setTextColor(ContextCompat.getColor(mContext, R.color.lighter_gray));
         }
         title.setVisibility(View.VISIBLE);
         data.setVisibility(View.GONE);
