@@ -41,7 +41,7 @@ public class RegistrationActivity extends AppCompatActivity {
         mFemaleText = (TextView) findViewById(R.id.female_text);
         mMale.setClickable(true);
         mFemale.setClickable(true);
-        mNickName.init(getString(R.string.registration_nick),EditView.NUMBER);
+        mNickName.init(getString(R.string.registration_nick),EditView.NICKNAME);
         mDescription.init(getString(R.string.registration_desc),EditView.TEXT);
         mPassword.init(getString(R.string.registration_pass),EditView.PASSWORD);
         mEmail.init(getString(R.string.registration_email),EditView.EMAIL);

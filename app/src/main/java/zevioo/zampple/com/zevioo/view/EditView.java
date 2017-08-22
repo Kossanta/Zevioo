@@ -18,13 +18,21 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.util.HashMap;
+import java.util.Map;
+
 import zevioo.zampple.com.zevioo.R;
+import zevioo.zampple.com.zevioo.ws.CheckNickName;
+import zevioo.zampple.com.zevioo.ws.WSInformer;
 
 
 /**
  * Created by kgiannoulis on 8/8/2016
  */
-public class EditView extends RelativeLayout implements View.OnClickListener, View.OnFocusChangeListener {
+public class EditView extends RelativeLayout implements View.OnClickListener, View.OnFocusChangeListener, WSInformer {
 
 
     private Context mContext;
@@ -182,6 +190,8 @@ public class EditView extends RelativeLayout implements View.OnClickListener, Vi
     public void validate(){
         if (mKeyboardType == NICKNAME){
             // TODO check via WS the validity of the nickname when return the ws set view as valid or not
+            CheckNickName checkNick = new CheckNickName(this,getValues(),mContext);
+            checkNick.execute();
         } else if (mKeyboardType == EMAIL) {
             isValid = isEmailValid(data.getText().toString());
             if (!isValid){
@@ -239,5 +249,38 @@ public class EditView extends RelativeLayout implements View.OnClickListener, Vi
         title.setVisibility(View.VISIBLE);
         data.setVisibility(View.GONE);
         error_msg.setVisibility(View.GONE);
+    }
+
+    private Map<String, Object> getValues() {
+        Map<String, Object> list = new HashMap<>();
+        list.put("VL", data.getText().toString());
+        return list;
+    }
+
+    @Override
+    public void onStart(int ws) {
+
+    }
+
+    @Override
+    public void onEnd(int ws) {
+
+    }
+
+    @Override
+    public void onSuccess(int ws, JSONObject response) throws JSONException {
+        isValid = true;
+    }
+
+    @Override
+    public void onError(int ws, JSONObject response) throws JSONException {
+        isValid = false;
+        error_msg.setText(response.getString("MSG"));
+        error.setVisibility(View.VISIBLE);
+    }
+
+    @Override
+    public void onTimeout() {
+
     }
 }

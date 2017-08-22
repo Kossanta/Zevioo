@@ -35,9 +35,6 @@ public class CheckNickName extends AsyncTask<Void, Void, Void> {
         this.mInformer = wsInformer;
         this.mRequestList = requestList;
         this.mContext = context;
-    }
-
-    public void init() {
         mRequest = getRequest();
     }
 
