@@ -119,22 +119,10 @@
              android:background="#000000" />
 
 
-         <TextView
-             android:layout_marginStart="16dp"
-             android:layout_marginEnd="16dp"
-             android:textSize="18sp"
-             android:minHeight="48dp"
-             android:gravity="center_vertical"
-             android:textColor="@color/lighter_gray"
-             android:text="@string/registration_dob"
-             android:layout_width="wrap_content"
-             android:layout_height="wrap_content" />
-         <View
-             android:layout_width="match_parent"
-             android:layout_height="1dp"
-             android:layout_marginStart="8dp"
-             android:layout_marginEnd="8dp"
-             android:background="#000000" />
+          <zevioo.zampple.com.zevioo.view.ButtonTextView
+              android:id="@+id/dob"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"/>
          <zevioo.zampple.com.zevioo.view.Spinner
              android:id="@+id/country"
              android:layout_width="match_parent"

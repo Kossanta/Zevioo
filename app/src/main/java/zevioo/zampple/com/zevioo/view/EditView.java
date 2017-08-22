@@ -103,12 +103,17 @@ public class EditView extends RelativeLayout implements View.OnClickListener, Vi
         error.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (errorIsShown){
-                    errorIsShown = false;
+                if (mKeyboardType == NICKNAME){
                     hideError();
+                    validate();
                 } else {
-                    errorIsShown = true;
-                    showError();
+                    if (errorIsShown) {
+                        errorIsShown = false;
+                        hideError();
+                    } else {
+                        errorIsShown = true;
+                        showError();
+                    }
                 }
             }
         });
@@ -178,10 +183,10 @@ public class EditView extends RelativeLayout implements View.OnClickListener, Vi
                 str = str + "*";
             }
             title.setText(str);
-            title.setTextColor(ContextCompat.getColor(mContext, R.color.darker_gray));
+            title.setTextColor(ContextCompat.getColor(mContext, R.color.black));
         } else {
                 title.setText(data.getText().toString());
-            title.setTextColor(ContextCompat.getColor(mContext, R.color.darker_gray));
+            title.setTextColor(ContextCompat.getColor(mContext, R.color.black));
         }
         if (title.getText().toString().equalsIgnoreCase("")){
             title.setText(mHint);

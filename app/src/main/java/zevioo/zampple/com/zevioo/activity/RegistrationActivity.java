@@ -12,7 +12,9 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import zevioo.zampple.com.zevioo.R;
+import zevioo.zampple.com.zevioo.view.ButtonTextView;
 import zevioo.zampple.com.zevioo.view.EditView;
+import zevioo.zampple.com.zevioo.view.Spinner;
 
 public class RegistrationActivity extends AppCompatActivity {
 
@@ -20,10 +22,12 @@ public class RegistrationActivity extends AppCompatActivity {
     EditView mDescription;
     EditView mPassword;
     EditView mEmail;
+    ButtonTextView mDob;
     Toolbar toolbar;
     RelativeLayout mMale, mFemale;
     ImageView mMaleImg, mFemaleImg;
     TextView mMaleText, mFemaleText;
+    Spinner mCountries, mLanguages;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,6 +43,12 @@ public class RegistrationActivity extends AppCompatActivity {
         mMaleText = (TextView) findViewById(R.id.male_text);
         mFemaleImg = (ImageView) findViewById(R.id.female_img);
         mFemaleText = (TextView) findViewById(R.id.female_text);
+        mCountries = (Spinner) findViewById(R.id.country);
+        mCountries.init("Select a country","Must not be empty", Spinner.COUNTRIES,this);
+        mLanguages = (Spinner) findViewById(R.id.language);
+        mLanguages.init("Select a language","Must not be empty", Spinner.LANGUAGES,this);
+        mDob = (ButtonTextView) findViewById(R.id.dob);
+        mDob.init(getString(R.string.registration_dob),ButtonTextView.DOB);
         mMale.setClickable(true);
         mFemale.setClickable(true);
         mNickName.init(getString(R.string.registration_nick),EditView.NICKNAME);
@@ -50,7 +60,7 @@ public class RegistrationActivity extends AppCompatActivity {
             public void onClick(View v) {
                 mMaleImg.setImageResource(R.drawable.gender_selected);
                 mFemaleImg.setImageResource(R.drawable.gender_empty);
-                mMaleText.setTextColor(ContextCompat.getColor(RegistrationActivity.this, R.color.darker_gray));
+                mMaleText.setTextColor(ContextCompat.getColor(RegistrationActivity.this, R.color.black));
                 mFemaleText.setTextColor(ContextCompat.getColor(RegistrationActivity.this, R.color.lighter_gray));
             }
         });
@@ -59,7 +69,7 @@ public class RegistrationActivity extends AppCompatActivity {
             public void onClick(View v) {
                 mFemaleImg.setImageResource(R.drawable.gender_selected);
                 mMaleImg.setImageResource(R.drawable.gender_empty);
-                mFemaleText.setTextColor(ContextCompat.getColor(RegistrationActivity.this, R.color.darker_gray));
+                mFemaleText.setTextColor(ContextCompat.getColor(RegistrationActivity.this, R.color.black));
                 mMaleText.setTextColor(ContextCompat.getColor(RegistrationActivity.this, R.color.lighter_gray));
 
             }

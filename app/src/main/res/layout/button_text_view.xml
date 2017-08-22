@@ -21,28 +21,6 @@
             android:minHeight="48dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
-
-            <zevioo.zampple.com.zevioo.view.CustomSpinner
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:imeOptions="actionDone"
-                android:dropDownWidth="200dp"
-                android:textSize="18sp"
-                android:layout_centerVertical="true"
-                android:textColor="@color/black"
-                android:inputType="textPassword"
-                app:backgroundTint="@color/black"
-                android:background="@android:color/transparent"
-                android:layout_toLeftOf="@+id/error"
-                android:layout_marginRight="8dp"
-                android:id="@+id/data"/>
-            <ImageView
-                android:layout_width="32dp"
-                android:layout_height="32dp"
-                app:srcCompat="@drawable/spinner_closed"
-                android:layout_alignRight="@+id/data"
-                android:layout_centerVertical="true"
-                android:id="@+id/arrow"/>
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -58,7 +36,7 @@
                 android:layout_height="wrap_content"
                 android:textSize="18sp"
                 android:layout_centerVertical="true"
-                android:textColor="@android:color/darker_gray"
+                android:textColor="@color/lighter_gray"
                 android:background="@android:color/transparent"
                 android:layout_toLeftOf="@+id/error"
                 android:layout_marginRight="8dp"
@@ -70,12 +48,6 @@
                 android:layout_alignParentRight="true"
                 android:layout_centerVertical="true"
                 android:id="@+id/error"/>
-            <ProgressBar
-                android:id="@+id/progress"
-                android:layout_width="32dp"
-                android:layout_alignParentRight="true"
-                android:layout_centerVertical="true"
-                android:layout_height="32dp" />
         </RelativeLayout>
 
     </RelativeLayout>

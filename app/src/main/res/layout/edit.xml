@@ -28,7 +28,7 @@
                 android:imeOptions="actionDone"
                 android:textSize="18sp"
                 android:layout_centerVertical="true"
-                android:textColor="@color/darker_gray"
+                android:textColor="@color/black"
                 android:textColorHint="@color/lighter_gray"
                 android:inputType="textPassword"
                 android:background="@android:color/transparent"

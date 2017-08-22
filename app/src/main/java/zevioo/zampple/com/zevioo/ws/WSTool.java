@@ -22,7 +22,7 @@ import javax.net.ssl.X509TrustManager;
 
 import zevioo.zampple.com.zevioo.application.ApplicationClass;
 import zevioo.zampple.com.zevioo.application.ApplicationPreferences;
-import zevioo.zampple.com.zevioo.objects.SimpleItem;
+import zevioo.zampple.com.zevioo.κουτί.entity.SimpleItem;
 
 
 /**
@@ -151,13 +151,13 @@ public class WSTool {
      * @param response
      * @throws JSONException
      */
-    public ArrayList<SimpleItem> parseSimpleItem(JSONObject response) throws JSONException{
+    public ArrayList<SimpleItem> parseSimpleItem(JSONObject response, int type) throws JSONException{
         ArrayList<SimpleItem> listOfCountries = new ArrayList<>();
         JSONArray countriesJSON = response.getJSONArray("LST");
         for (int i=0; i<countriesJSON.length();i++) {
             JSONObject tempCountry = countriesJSON.getJSONObject(i);
             SimpleItem simpleItem = new SimpleItem();
-            listOfCountries.add(simpleItem.fromJSON(tempCountry));
+            listOfCountries.add(simpleItem.fromJSON(tempCountry,type));
         }
         return listOfCountries;
     }

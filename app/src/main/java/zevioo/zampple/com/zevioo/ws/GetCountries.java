@@ -28,16 +28,11 @@ public class GetCountries extends AsyncTask<Void, Void, Void> {
 
     private String mRequest;
     private WSInformer mInformer;
-    private Map<String, Object> mRequestList;
     private Context mContext;
 
-    public GetCountries(WSInformer wsInformer, Map<String, Object> requestList, Context context) {
+    public GetCountries(WSInformer wsInformer, Context context) {
         this.mInformer = wsInformer;
-        this.mRequestList = requestList;
         this.mContext = context;
-    }
-
-    public void init() {
         mRequest = getRequest();
     }
 

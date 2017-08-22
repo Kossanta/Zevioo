@@ -28,16 +28,11 @@ public class GetLanguages extends AsyncTask<Void, Void, Void> {
 
     private String mRequest;
     private WSInformer mInformer;
-    private Map<String, Object> mRequestList;
     private Context mContext;
 
-    public GetLanguages(WSInformer wsInformer, Map<String, Object> requestList, Context context) {
+    public GetLanguages(WSInformer wsInformer, Context context) {
         this.mInformer = wsInformer;
-        this.mRequestList = requestList;
         this.mContext = context;
-    }
-
-    public void init() {
         mRequest = getRequest();
     }
 
