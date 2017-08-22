@@ -33,9 +33,6 @@ public class Login extends AsyncTask<Void, Void, Void> {
     public Login(WSInformer wsInformer, Map<String, Object> requestList) {
         this.mInformer = wsInformer;
         this.mRequestList = requestList;
-    }
-
-    public void init() {
         mRequest = getRequest();
     }
 
@@ -48,7 +45,7 @@ public class Login extends AsyncTask<Void, Void, Void> {
     @Override
     protected void onPostExecute(Void s) {
         super.onPostExecute(s);
-        mInformer.onEnd(WSTool.LOGIN, 0);
+        mInformer.onEnd(WSTool.LOGIN);
     }
 
     @Override

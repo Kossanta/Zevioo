@@ -45,7 +45,7 @@ public class Register extends AsyncTask<Void, Void, Void> {
     @Override
     protected void onPostExecute(Void s) {
         super.onPostExecute(s);
-        mInformer.onEnd(WSTool.REGISTRATION, 0);
+        mInformer.onEnd(WSTool.REGISTRATION);
     }
 
     @Override

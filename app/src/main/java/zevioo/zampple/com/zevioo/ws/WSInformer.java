@@ -10,7 +10,7 @@ public interface WSInformer {
 
     void onStart(int ws);
 
-    void onEnd(int ws, int type);
+    void onEnd(int ws);
 
     void onSuccess(int ws, JSONObject response) throws JSONException;
 

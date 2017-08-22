@@ -51,7 +51,7 @@ public class UpdateProfile extends AsyncTask<Void, Void, Void> {
     @Override
     protected void onPostExecute(Void s) {
         super.onPostExecute(s);
-        mInformer.onEnd(WSTool.UPDATE_PROFILE, 0);
+        mInformer.onEnd(WSTool.UPDATE_PROFILE);
     }
 
     @Override

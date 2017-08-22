@@ -50,7 +50,7 @@ public class GetCountries extends AsyncTask<Void, Void, Void> {
     @Override
     protected void onPostExecute(Void s) {
         super.onPostExecute(s);
-        mInformer.onEnd(WSTool.GET_COUNTRIES, 0);
+        mInformer.onEnd(WSTool.GET_COUNTRIES);
     }
 
     @Override

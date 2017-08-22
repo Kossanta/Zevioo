@@ -50,7 +50,7 @@ public class CheckVFCode extends AsyncTask<Void, Void, Void> {
     @Override
     protected void onPostExecute(Void s) {
         super.onPostExecute(s);
-        mInformer.onEnd(WSTool.CHECK_VFCODE, 0);
+        mInformer.onEnd(WSTool.CHECK_VFCODE);
     }
 
     @Override

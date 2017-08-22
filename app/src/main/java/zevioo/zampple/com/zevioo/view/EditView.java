@@ -39,7 +39,6 @@ public class EditView extends RelativeLayout implements View.OnClickListener, Vi
     public static int NUMBER = 4;
     public static int TEXT = 5;
     private String mHint;
-    private String mErrorMessage;
     private boolean errorIsShown;
     private boolean isValid;
 
@@ -86,11 +85,9 @@ public class EditView extends RelativeLayout implements View.OnClickListener, Vi
         return isValid;
     }
 
-    public void init(String hint, int keyboardType, String errorMessage) {
+    public void init(String hint, int keyboardType) {
         this.mHint = hint;
         this.mKeyboardType = keyboardType;
-        this.mErrorMessage = errorMessage;
-        error_msg.setText(mErrorMessage);
         error.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -149,7 +146,7 @@ public class EditView extends RelativeLayout implements View.OnClickListener, Vi
                 focusOn();
             } else {
                 focusOff();
-                    validate();
+                validate();
             }
         }
     }
@@ -189,18 +186,30 @@ public class EditView extends RelativeLayout implements View.OnClickListener, Vi
             isValid = isEmailValid(data.getText().toString());
             if (!isValid){
                 error.setVisibility(View.VISIBLE);
+                error_msg.setText("Not valid email");
             }
         } else if (mKeyboardType == PASSWORD) {
             if (data.getText().toString().length()>=8){
                 isValid = true;
-            } else {
+            } else if (data.getText().toString().equalsIgnoreCase("")) {
+                error_msg.setText("Must not be empty");
                 isValid = false;
+            } else {
+                error_msg.setText("Must be at least 8 characters long");
+                isValid = false;
+            }
+            if (!isValid){
+                error.setVisibility(View.VISIBLE);
             }
         } else {
             if (data.getText().toString().equalsIgnoreCase("")){
                 isValid = false;
             } else {
                 isValid = true;
+            }
+            if (!isValid){
+                error_msg.setText("Must not be empty");
+                error.setVisibility(View.VISIBLE);
             }
         }
 

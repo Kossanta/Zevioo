@@ -50,7 +50,7 @@ public class GetLanguages extends AsyncTask<Void, Void, Void> {
     @Override
     protected void onPostExecute(Void s) {
         super.onPostExecute(s);
-        mInformer.onEnd(WSTool.GET_LANGUAGES, 0);
+        mInformer.onEnd(WSTool.GET_LANGUAGES);
     }
 
     @Override
