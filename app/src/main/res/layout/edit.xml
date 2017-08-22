@@ -62,6 +62,12 @@
                 android:layout_alignParentRight="true"
                 android:layout_centerVertical="true"
                 android:id="@+id/error"/>
+            <ProgressBar
+                android:id="@+id/progress"
+                android:layout_width="32dp"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_height="32dp" />
         </RelativeLayout>
 
     </RelativeLayout>

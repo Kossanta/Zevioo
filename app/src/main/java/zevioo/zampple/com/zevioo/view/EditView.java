@@ -15,6 +15,7 @@ import android.view.inputmethod.EditorInfo;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
@@ -49,6 +50,7 @@ public class EditView extends RelativeLayout implements View.OnClickListener, Vi
     private String mHint;
     private boolean errorIsShown;
     private boolean isValid;
+    private ProgressBar progress;
 
 
     public EditView(Context context, AttributeSet attrs) {
@@ -62,6 +64,8 @@ public class EditView extends RelativeLayout implements View.OnClickListener, Vi
         error = (ImageView) mainView.findViewById(R.id.error);
         title = (TextView) mainView.findViewById(R.id.title);
         data = (EditText) mainView.findViewById(R.id.data);
+        progress = (ProgressBar) mainView.findViewById(R.id.progress);
+        progress.setVisibility(View.GONE);
         data.setOnFocusChangeListener(this);
         data.setOnEditorActionListener(new TextView.OnEditorActionListener() {
             @Override
@@ -259,12 +263,12 @@ public class EditView extends RelativeLayout implements View.OnClickListener, Vi
 
     @Override
     public void onStart(int ws) {
-
+        progress.setVisibility(View.VISIBLE);
     }
 
     @Override
     public void onEnd(int ws) {
-
+        progress.setVisibility(View.GONE);
     }
 
     @Override
