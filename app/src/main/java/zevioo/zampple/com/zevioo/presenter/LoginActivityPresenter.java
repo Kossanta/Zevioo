@@ -1,11 +1,14 @@
 package zevioo.zampple.com.zevioo.presenter;
 
+import android.support.design.widget.Snackbar;
+
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.HashMap;
 import java.util.Map;
 
+import zevioo.zampple.com.zevioo.R;
 import zevioo.zampple.com.zevioo.activity.LoginActivity;
 import zevioo.zampple.com.zevioo.tools.InternetStatus;
 import zevioo.zampple.com.zevioo.ws.Login;
@@ -21,11 +24,14 @@ public class LoginActivityPresenter implements WSInformer {
     LoginActivity mActivity;
     String mEmail, mPass;
     Login loginWs;
+    Snackbar messenger;
+    WSTool wsTool;
 
     public LoginActivityPresenter(LoginActivity activity) {
         this.mActivity = activity;
         this.mEmail = "";
         this.mPass = "";
+        this.wsTool = new WSTool(mActivity);
     }
 
 
@@ -50,27 +56,32 @@ public class LoginActivityPresenter implements WSInformer {
 
     @Override
     public void onStart(int ws) {
-        mActivity.start();
+        messenger = mActivity.pleaseWait(ws);
     }
 
     @Override
     public void onEnd(int ws) {
-        mActivity.end();
     }
 
     @Override
     public void onSuccess(int ws, JSONObject response) throws JSONException {
-        // todo parse login response
+        try {
+            wsTool.parseLoginResponse(response);
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        mActivity.dismissWait(messenger);
         mActivity.success();
     }
 
     @Override
     public void onError(int ws, JSONObject response) throws JSONException {
-        mActivity.error(response.getString("MSG"));
+        mActivity.dismissWait(messenger);
+        mActivity.somethingWrong(response.getString("MSG"));
     }
 
     @Override
     public void onTimeout() {
-        mActivity.timeout();
+        mActivity.somethingWrong(mActivity.getString(R.string.low_connectivity));
     }
 }

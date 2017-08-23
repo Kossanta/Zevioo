@@ -29,4 +29,12 @@
     <string name="cancel">Cancel</string>
     <!-- DEBUG MESSAGE FOR WRITE PERMISSION -->
     <string name="write_permission">Please enable write permission in order to be able to monitor database in the file system.</string>
+
+    <!-- Snack bar messages -->
+    <string name="low_connectivity">Limited network connectivity</string>
+    <string name="snack_action">RETRY</string>
+    <string name="snack_no_internet">Internet connection unavailable. Please connect to a network and try again</string>
+    <string name="msg1">Creating your profile...</string>
+    <string name="msg3">Logging in...</string>
+    <string name="msg2">Updating your profile...</string>
 </resources>

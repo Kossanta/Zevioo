@@ -20,6 +20,7 @@ import javax.net.ssl.SSLSocketFactory;
 import javax.net.ssl.TrustManager;
 import javax.net.ssl.X509TrustManager;
 
+import zevioo.zampple.com.zevioo.R;
 import zevioo.zampple.com.zevioo.application.ApplicationClass;
 import zevioo.zampple.com.zevioo.application.ApplicationPreferences;
 import zevioo.zampple.com.zevioo.κουτί.entity.SimpleItem;
@@ -167,39 +168,15 @@ public class WSTool {
     public static String getTitle(int id, ApplicationClass clas) {
         String message = "";
         switch (id) {
-//            case 1:
-//                message = clas.getString(R.string.msg1);
-//                break;
-//            case 3:
-//                message = clas.getString(R.string.msg3);
-//                break;
-//            case 8:
-//                message = clas.getString(R.string.msg8);
-//                break;
-//            case 7:
-//                message = clas.getString(R.string.msg7);
-//                break;
-//            case 6:
-//                message = clas.getString(R.string.msg6);
-//                break;
-//            case 2:
-//                message = clas.getString(R.string.msg2);
-//                break;
-//            case 10:
-//                message = clas.getString(R.string.msg10);
-//                break;
-//            case 14:
-//                message = clas.getString(R.string.msg14);
-//                break;
-//            case 24:
-//                message = clas.getString(R.string.msg24);
-//                break;
-//            case 25:
-//                message = clas.getString(R.string.msg25);
-//                break;
-//            case 26:
-//                message = clas.getString(R.string.msg25);
-//                break;
+            case 1:
+                message = clas.getString(R.string.msg1);
+                break;
+            case 2:
+                message = clas.getString(R.string.msg2);
+                break;
+            case 3:
+                message = clas.getString(R.string.msg3);
+                break;
         }
         return message;
     }

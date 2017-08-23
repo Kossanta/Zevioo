@@ -29,4 +29,12 @@
     <string name="cancel">ΑΚΥΡΩΣΗ</string>
     <!-- DEBUG MESSAGE FOR WRITE PERMISSION -->
     <string name="write_permission">Παρακαλώ ενεργοποιήστε την άδεια για εγγραφή σε αρχείο έτσι ώστε να μπορείτε να παρακολουθήσετε την βάση στα αρχεία σας.</string>
+
+    <!-- Snack bar messages -->
+    <string name="low_connectivity">Περιορισμένη σύνδεση στο internet</string>
+    <string name="snack_action">ΠΡΟΣΠΑΘΗΣΤΕ ΞΑΝΑ</string>
+    <string name="snack_no_internet">Δεν υπάρχει σύνδεση στο διαδίκτυο. Παρακαλώ συνδεθείτε και προσπαθήστε ξανά</string>
+    <string name="msg1">Δημιουργία Προφίλ...</string>
+    <string name="msg3">Είσοδος...</string>
+    <string name="msg2">Ενημέρωση του προφίλ σας...</string>
 </resources>
