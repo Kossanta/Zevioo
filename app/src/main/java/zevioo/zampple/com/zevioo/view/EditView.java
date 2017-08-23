@@ -26,6 +26,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import zevioo.zampple.com.zevioo.R;
+import zevioo.zampple.com.zevioo.presenter.Validator;
 import zevioo.zampple.com.zevioo.ws.CheckNickName;
 import zevioo.zampple.com.zevioo.ws.WSInformer;
 
@@ -51,6 +52,7 @@ public class EditView extends RelativeLayout implements View.OnClickListener, Vi
     private boolean errorIsShown;
     private boolean isValid;
     private ProgressBar progress;
+    private Validator mValidator;
 
 
     public EditView(Context context, AttributeSet attrs) {
@@ -97,9 +99,10 @@ public class EditView extends RelativeLayout implements View.OnClickListener, Vi
         return isValid;
     }
 
-    public void init(String hint, int keyboardType) {
+    public void init(String hint, int keyboardType, Validator validator) {
         this.mHint = hint;
         this.mKeyboardType = keyboardType;
+        this.mValidator = validator;
         error.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -231,7 +234,13 @@ public class EditView extends RelativeLayout implements View.OnClickListener, Vi
                 error.setVisibility(View.VISIBLE);
             }
         }
-
+        if (mKeyboardType != NICKNAME) {
+            if (isValid()) {
+                mValidator.valid();
+            } else {
+                mValidator.invalid();
+            }
+        }
     }
 
     private boolean isEmailValid(CharSequence email) {
@@ -274,6 +283,11 @@ public class EditView extends RelativeLayout implements View.OnClickListener, Vi
     @Override
     public void onEnd(int ws) {
         progress.setVisibility(View.GONE);
+        if (isValid()) {
+            mValidator.valid();
+        } else {
+            mValidator.invalid();
+        }
     }
 
     @Override

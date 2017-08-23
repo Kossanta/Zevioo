@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="start_subtitle">Reviews just for you.</string>
     <string name="start_register">Εγγραφή με email</string>
     <string name="start_login">Είστε ήδη μέλος;</string>
     <string name="start_page_0_title">Δείτε αληθινές &amp; χρήσιμες αξιολογήσεις.</string>
@@ -23,4 +24,9 @@
     <!-- Menus -->
     <string name="menu_register">Εγγραφή</string>
     <string name="menu_login">Σύνδεση</string>
+    <!-- Permissions -->
+    <string name="ok">OK</string>
+    <string name="cancel">ΑΚΥΡΩΣΗ</string>
+    <!-- DEBUG MESSAGE FOR WRITE PERMISSION -->
+    <string name="write_permission">Παρακαλώ ενεργοποιήστε την άδεια για εγγραφή σε αρχείο έτσι ώστε να μπορείτε να παρακολουθήσετε την βάση στα αρχεία σας.</string>
 </resources>

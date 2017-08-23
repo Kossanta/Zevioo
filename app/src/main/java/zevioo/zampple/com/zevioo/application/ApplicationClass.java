@@ -51,7 +51,7 @@ public class ApplicationClass extends Application {
     @Override
     protected void attachBaseContext(Context base) {
         // TODO here get the users prefered language from shared preferencies
-        super.attachBaseContext(LocaleHelper.onAttach(base, "en"));
+        super.attachBaseContext(LocaleHelper.onAttach(base, "el"));
     }
 
     public static ApplicationClass getInstance() {

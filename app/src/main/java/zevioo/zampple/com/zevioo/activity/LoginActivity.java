@@ -9,23 +9,28 @@ import android.view.View;
 
 import zevioo.zampple.com.zevioo.R;
 import zevioo.zampple.com.zevioo.presenter.LoginActivityPresenter;
+import zevioo.zampple.com.zevioo.presenter.Validator;
 import zevioo.zampple.com.zevioo.view.EditView;
 
-public class LoginActivity extends AppCompatActivity {
+public class LoginActivity extends AppCompatActivity implements Validator{
 
     EditView mEmail;
     EditView mPassword;
     Toolbar toolbar;
     LoginActivityPresenter presenter;
+    private int maxFields = 2;
+    private int currentFilledFields = 0;
+    private boolean proceed;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.login_activity);
+        proceed = false;
         mEmail = (EditView) findViewById(R.id.email);
         mPassword = (EditView) findViewById(R.id.password);
-        mPassword.init(getString(R.string.registration_pass),EditView.PASSWORD);
-        mEmail.init(getString(R.string.registration_email),EditView.EMAIL);
+        mPassword.init(getString(R.string.registration_pass),EditView.PASSWORD,this);
+        mEmail.init(getString(R.string.registration_email),EditView.EMAIL,this);
         presenter = new LoginActivityPresenter(this);
         initToolbar();
     }
@@ -59,10 +64,23 @@ public class LoginActivity extends AppCompatActivity {
                 return false;
             }
         });
+        if (proceed){
+            menu.findItem(R.id.action_login).setVisible(true);
+        } else {
+            menu.findItem(R.id.action_login).setVisible(false);
+        }
         return super.onCreateOptionsMenu(menu);
     }
 
-
+    @Override
+    public boolean onPrepareOptionsMenu(Menu menu) {
+        if (proceed){
+            menu.findItem(R.id.action_login).setVisible(true);
+        } else {
+            menu.findItem(R.id.action_login).setVisible(false);
+        }
+        return super.onPrepareOptionsMenu(menu);
+    }
 
     public void start(){
         // TODO show loader
@@ -88,4 +106,19 @@ public class LoginActivity extends AppCompatActivity {
         // TODO inform user about no internet connection
     }
 
+    @Override
+    public void invalid() {
+        currentFilledFields--;
+        proceed = false;
+        invalidateOptionsMenu();
+    }
+
+    @Override
+    public void valid() {
+        currentFilledFields++;
+        if (currentFilledFields==maxFields){
+            proceed = true;
+            invalidateOptionsMenu();
+        }
+    }
 }

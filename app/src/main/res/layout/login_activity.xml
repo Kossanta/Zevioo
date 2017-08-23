@@ -9,9 +9,10 @@
           android:layout_width="match_parent"
           android:background="@android:color/transparent"
           android:layout_height="wrap_content"
-          android:fitsSystemWindows="true">
+          android:fitsSystemWindows="true"/>
 
          <RelativeLayout
+             android:id="@+id/logo_layout"
              android:layout_width="match_parent"
              android:layout_height="match_parent"
              android:layout_marginTop="56dp"
@@ -22,7 +23,7 @@
          <ImageView
              android:layout_width="40dp"
              android:id="@+id/logo"
-             app:srcCompat="@drawable/logo"
+             android:src="@drawable/logo"
              android:layout_centerHorizontal="true"
              android:layout_height="40dp" />
          <TextView
@@ -35,12 +36,10 @@
              android:layout_height="wrap_content" />
          </RelativeLayout>
 
-  </android.support.v7.widget.Toolbar>
-
    <RelativeLayout
        android:layout_width="match_parent"
        android:layout_height="match_parent"
-       android:layout_below="@+id/toolbar"
+       android:layout_below="@+id/logo_layout"
        android:layout_marginTop="8dp"
        android:descendantFocusability="beforeDescendants"
        android:focusable="true"

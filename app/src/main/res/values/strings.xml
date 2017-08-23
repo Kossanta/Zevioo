@@ -24,4 +24,9 @@
     <!-- Menus -->
     <string name="menu_register">Sign up</string>
     <string name="menu_login">Sign in</string>
+    <!-- Permissions -->
+    <string name="ok">OK</string>
+    <string name="cancel">Cancel</string>
+    <!-- DEBUG MESSAGE FOR WRITE PERMISSION -->
+    <string name="write_permission">Please enable write permission in order to be able to monitor database in the file system.</string>
 </resources>

@@ -17,6 +17,7 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
 import zevioo.zampple.com.zevioo.R;
+import zevioo.zampple.com.zevioo.presenter.Validator;
 
 
 /**
@@ -34,6 +35,7 @@ public class ButtonTextView extends RelativeLayout implements View.OnClickListen
     private String mHint;
     private boolean errorIsShown;
     private boolean isValid;
+    private Validator mValidator;
 
 
     public ButtonTextView(Context context, AttributeSet attrs) {
@@ -64,9 +66,10 @@ public class ButtonTextView extends RelativeLayout implements View.OnClickListen
         return isValid;
     }
 
-    public void init(String hint, int type) {
+    public void init(String hint, int type, Validator validator) {
         this.mHint = hint;
         this.mType = type;
+        this.mValidator = validator;
         error.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -119,6 +122,7 @@ public class ButtonTextView extends RelativeLayout implements View.OnClickListen
         title.setTextColor(ContextCompat.getColor(mContext, R.color.lighter_gray));
         error.setVisibility(View.VISIBLE);
         error_msg.setText("Must not be empty");
+        mValidator.invalid();
     }
 
     private void select(String date){
@@ -128,6 +132,7 @@ public class ButtonTextView extends RelativeLayout implements View.OnClickListen
         title.setVisibility(View.VISIBLE);
         title.setTextColor(ContextCompat.getColor(mContext, R.color.black));
         title.setText(date);
+        mValidator.valid();
     }
 
 //    public void validate(){

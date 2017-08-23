@@ -8,11 +8,12 @@
         android:layout_width="match_parent"
         android:background="@android:color/transparent"
         android:layout_height="wrap_content"
-        android:fitsSystemWindows="true">
+        android:fitsSystemWindows="true"/>
 
    <RelativeLayout
+       android:id="@+id/logo_layout"
        android:layout_width="match_parent"
-       android:layout_height="match_parent"
+       android:layout_height="wrap_content"
        android:layout_marginTop="56dp"
        android:descendantFocusability="beforeDescendants"
        android:focusable="true"
@@ -21,7 +22,7 @@
       <ImageView
           android:layout_width="40dp"
           android:id="@+id/logo"
-          app:srcCompat="@drawable/logo"
+          android:src="@drawable/logo"
           android:layout_centerHorizontal="true"
           android:layout_height="40dp" />
       <TextView
@@ -33,12 +34,11 @@
           android:textSize="22sp"
           android:layout_height="wrap_content" />
 </RelativeLayout>
-    </android.support.v7.widget.Toolbar>
       <android.support.v4.widget.NestedScrollView
           android:id="@+id/scroll"
           android:layout_width="match_parent"
           android:layout_height="match_parent"
-          android:layout_below="@+id/toolbar"
+          android:layout_below="@+id/logo_layout"
           android:layout_marginTop="8dp">
 
       <LinearLayout
@@ -72,7 +72,7 @@
     android:id="@+id/male_img"
     android:layout_width="wrap_content"
     android:layout_centerVertical="true"
-    app:srcCompat="@drawable/gender_empty"
+    android:src="@drawable/gender_empty"
     android:layout_height="wrap_content" />
       <TextView
           android:id="@+id/male_text"
@@ -96,7 +96,7 @@
           android:id="@+id/female_img"
           android:layout_width="wrap_content"
           android:layout_centerVertical="true"
-          app:srcCompat="@drawable/gender_empty"
+          android:src="@drawable/gender_empty"
           android:layout_height="wrap_content" />
       <TextView
           android:id="@+id/female_text"
@@ -160,7 +160,7 @@
                 android:id="@+id/terms_check"
                 android:layout_width="wrap_content"
                 android:layout_centerVertical="true"
-                app:srcCompat="@drawable/gender_empty"
+                android:src="@drawable/gender_empty"
                 android:layout_height="wrap_content" />
             <TextView
                 android:layout_toEndOf="@+id/terms_check"

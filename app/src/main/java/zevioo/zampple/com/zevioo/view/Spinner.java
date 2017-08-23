@@ -19,7 +19,9 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 
 import zevioo.zampple.com.zevioo.R;
+import zevioo.zampple.com.zevioo.activity.RegistrationActivity;
 import zevioo.zampple.com.zevioo.adapter.CustomSpinnerAdapter;
+import zevioo.zampple.com.zevioo.presenter.Validator;
 import zevioo.zampple.com.zevioo.ws.GetCountries;
 import zevioo.zampple.com.zevioo.ws.GetLanguages;
 import zevioo.zampple.com.zevioo.ws.WSInformer;
@@ -48,7 +50,7 @@ public class Spinner extends RelativeLayout implements View.OnClickListener, WSI
     private ProgressBar progress;
     private WSTool wsTool;
     private SimpleItem mSelectedItem;
-    private Activity mActivity;
+    private RegistrationActivity mActivity;
     private ArrayList<SimpleItem> resultList;
 
 
@@ -96,6 +98,7 @@ public class Spinner extends RelativeLayout implements View.OnClickListener, WSI
                 mSelectedItem = resultList.get(position);
                 isValid = true;
                 focusOff();
+                mActivity.valid();
             }
 
             @Override
@@ -109,7 +112,7 @@ public class Spinner extends RelativeLayout implements View.OnClickListener, WSI
         return isValid;
     }
 
-    public void init(String hint, String errorMessage, int type, Activity activity) {
+    public void init(String hint, String errorMessage, int type, RegistrationActivity activity) {
         this.mHint = hint;
         this.mErrorMessage = errorMessage;
         this.mType = type;
@@ -195,7 +198,6 @@ public class Spinner extends RelativeLayout implements View.OnClickListener, WSI
 
     @Override
     public void onSuccess(int ws, JSONObject response) throws JSONException {
-        isValid = true;
         resultList = new ArrayList<>();
         if (ws == WSTool.GET_COUNTRIES){
             resultList = wsTool.parseSimpleItem(response, SimpleItem.COUNTRY);

@@ -44,7 +44,7 @@
             <ImageView
                 android:layout_width="32dp"
                 android:layout_height="32dp"
-                app:srcCompat="@drawable/error"
+                android:src="@drawable/error"
                 android:layout_alignParentRight="true"
                 android:layout_centerVertical="true"
                 android:id="@+id/error"/>
