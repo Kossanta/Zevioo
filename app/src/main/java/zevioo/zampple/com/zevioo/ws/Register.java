@@ -30,9 +30,6 @@ public class Register extends AsyncTask<Void, Void, Void> {
     public Register(WSInformer wsInformer, Profile profile) {
         this.mInformer = wsInformer;
         this.mProfile = profile;
-    }
-
-    public void init() {
         mRequest = getRequest();
     }
 

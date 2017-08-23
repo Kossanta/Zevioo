@@ -22,6 +22,7 @@ import zevioo.zampple.com.zevioo.R;
 import zevioo.zampple.com.zevioo.activity.RegistrationActivity;
 import zevioo.zampple.com.zevioo.adapter.CustomSpinnerAdapter;
 import zevioo.zampple.com.zevioo.presenter.Validator;
+import zevioo.zampple.com.zevioo.tools.LocaleHelper;
 import zevioo.zampple.com.zevioo.ws.GetCountries;
 import zevioo.zampple.com.zevioo.ws.GetLanguages;
 import zevioo.zampple.com.zevioo.ws.WSInformer;
@@ -99,6 +100,9 @@ public class Spinner extends RelativeLayout implements View.OnClickListener, WSI
                 isValid = true;
                 focusOff();
                 mActivity.valid();
+                if (mType == LANGUAGES){
+                    LocaleHelper.setLocale(mContext,mSelectedItem.getCode());
+                }
             }
 
             @Override
@@ -148,7 +152,7 @@ public class Spinner extends RelativeLayout implements View.OnClickListener, WSI
     }
 
     public String getValueId() {
-        return title.getText().toString();
+        return mSelectedItem.getItem_id();
     }
 
 

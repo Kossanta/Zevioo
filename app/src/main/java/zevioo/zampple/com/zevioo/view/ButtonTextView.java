@@ -13,8 +13,10 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Date;
 
 import zevioo.zampple.com.zevioo.R;
 import zevioo.zampple.com.zevioo.presenter.Validator;
@@ -58,8 +60,22 @@ public class ButtonTextView extends RelativeLayout implements View.OnClickListen
         title.setVisibility(View.VISIBLE);
     }
 
-    public String getValue() {
-        return title.getText().toString();
+    public Date getValue() {
+        SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy");
+        try {
+            return format.parse(title.getText().toString());
+        } catch (ParseException e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
+
+    public void validate(){
+        if (isValid){
+            select(title.getText().toString());
+        } else {
+            cancel();
+        }
     }
 
     public boolean isValid() {
