@@ -35,12 +35,12 @@
                 android:background="@android:color/transparent"
                 android:layout_toLeftOf="@+id/error"
                 android:layout_marginRight="8dp"
-                android:id="@+id/data"/>
+                android:id="@+id/dataspinner"/>
             <ImageView
                 android:layout_width="32dp"
                 android:layout_height="32dp"
                 android:src="@drawable/spinner_closed"
-                android:layout_alignRight="@+id/data"
+                android:layout_alignRight="@+id/dataspinner"
                 android:layout_centerVertical="true"
                 android:id="@+id/arrow"/>
             <TextView

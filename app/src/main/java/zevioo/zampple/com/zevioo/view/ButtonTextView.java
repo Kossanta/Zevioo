@@ -132,23 +132,28 @@ public class ButtonTextView extends RelativeLayout implements View.OnClickListen
     }
 
     private void cancel(){
+        if (isValid){
+            mValidator.invalid();
+        }
         isValid = false;
         error_msg.setVisibility(View.GONE);
         title.setText(mHint);
         title.setTextColor(ContextCompat.getColor(mContext, R.color.lighter_gray));
         error.setVisibility(View.VISIBLE);
         error_msg.setText("Must not be empty");
-        mValidator.invalid();
     }
 
     private void select(String date){
+        if (!isValid){
+            mValidator.valid();
+        }
         isValid = true;
         error.setVisibility(View.GONE);
         error_msg.setVisibility(View.GONE);
         title.setVisibility(View.VISIBLE);
         title.setTextColor(ContextCompat.getColor(mContext, R.color.black));
         title.setText(date);
-        mValidator.valid();
+
     }
 
 //    public void validate(){

@@ -2,6 +2,8 @@ package zevioo.zampple.com.zevioo.view;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.res.Configuration;
+import android.content.res.Resources;
 import android.graphics.Color;
 import android.support.v4.content.ContextCompat;
 import android.util.AttributeSet;
@@ -17,6 +19,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
+import java.util.Locale;
 
 import zevioo.zampple.com.zevioo.R;
 import zevioo.zampple.com.zevioo.activity.RegistrationActivity;
@@ -67,7 +70,7 @@ public class Spinner extends RelativeLayout implements View.OnClickListener, WSI
         error = (ImageView) mainView.findViewById(R.id.error);
         arrow = (ImageView) mainView.findViewById(R.id.arrow);
         title = (TextView) mainView.findViewById(R.id.title);
-        data = (CustomSpinner) mainView.findViewById(R.id.data);
+        data = (CustomSpinner) mainView.findViewById(R.id.dataspinner);
         progress = (ProgressBar) mainView.findViewById(R.id.progress);
         progress.setVisibility(View.GONE);
         error_msg = (TextView) mainView.findViewById(R.id.error_msg);
@@ -99,10 +102,9 @@ public class Spinner extends RelativeLayout implements View.OnClickListener, WSI
                 mSelectedItem = resultList.get(position);
                 isValid = true;
                 focusOff();
-                mActivity.valid();
-                if (mType == LANGUAGES){
-                    LocaleHelper.setLocale(mContext,mSelectedItem.getCode());
-                }
+//                if (mType == LANGUAGES){
+//                    LocaleHelper.setLocale(mContext,mSelectedItem.getCode());
+//                }
             }
 
             @Override
@@ -154,7 +156,9 @@ public class Spinner extends RelativeLayout implements View.OnClickListener, WSI
     public String getValueId() {
         return mSelectedItem.getItem_id();
     }
-
+    public String getValueCode() {
+        return mSelectedItem.getCode();
+    }
 
     private void focusOn(){
         error_msg.setVisibility(View.GONE);
@@ -218,6 +222,7 @@ public class Spinner extends RelativeLayout implements View.OnClickListener, WSI
                 data.setSelection(0);
                 data.setVisibility(View.VISIBLE);
                 arrow.setVisibility(View.VISIBLE);
+                mActivity.valid();
             }
         });
     }

@@ -212,12 +212,21 @@ public class EditView extends RelativeLayout implements View.OnClickListener, Vi
             }
         } else if (mKeyboardType == PASSWORD) {
             if (data.getText().toString().length()>=8){
+                if (!isValid){
+                    mValidator.valid();
+                }
                 isValid = true;
             } else if (data.getText().toString().equalsIgnoreCase("")) {
                 error_msg.setText("Must not be empty");
+                if (isValid){
+                    mValidator.invalid();
+                }
                 isValid = false;
             } else {
                 error_msg.setText("Must be at least 8 characters long");
+                if (isValid){
+                    mValidator.invalid();
+                }
                 isValid = false;
             }
             if (!isValid){
@@ -225,20 +234,19 @@ public class EditView extends RelativeLayout implements View.OnClickListener, Vi
             }
         } else {
             if (data.getText().toString().equalsIgnoreCase("")){
+                if (isValid){
+                    mValidator.invalid();
+                }
                 isValid = false;
             } else {
+                if (!isValid){
+                    mValidator.valid();
+                }
                 isValid = true;
             }
             if (!isValid){
                 error_msg.setText("Must not be empty");
                 error.setVisibility(View.VISIBLE);
-            }
-        }
-        if (mKeyboardType != NICKNAME) {
-            if (isValid()) {
-                mValidator.valid();
-            } else {
-                mValidator.invalid();
             }
         }
     }
@@ -283,20 +291,21 @@ public class EditView extends RelativeLayout implements View.OnClickListener, Vi
     @Override
     public void onEnd(int ws) {
         progress.setVisibility(View.GONE);
-        if (isValid()) {
-            mValidator.valid();
-        } else {
-            mValidator.invalid();
-        }
     }
 
     @Override
     public void onSuccess(int ws, JSONObject response) throws JSONException {
+        if (!isValid){
+            mValidator.valid();
+        }
         isValid = true;
     }
 
     @Override
     public void onError(int ws, JSONObject response) throws JSONException {
+        if (isValid){
+            mValidator.invalid();
+        }
         isValid = false;
         error_msg.setText(response.getString("MSG"));
         error.setVisibility(View.VISIBLE);
