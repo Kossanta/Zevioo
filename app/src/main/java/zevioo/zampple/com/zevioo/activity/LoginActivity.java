@@ -37,8 +37,8 @@ public class LoginActivity extends AppCompatActivity implements Validator, Prese
         parent_layout = (CoordinatorLayout) findViewById(R.id.parent_layout);
         mEmail = (EditView) findViewById(R.id.email);
         mPassword = (EditView) findViewById(R.id.password);
-        mPassword.init(getString(R.string.registration_pass),EditView.PASSWORD,this);
-        mEmail.init(getString(R.string.registration_email),EditView.EMAIL,this);
+        mPassword.init(getString(R.string.registration_pass),EditView.PASSWORD,this,this);
+        mEmail.init(getString(R.string.registration_email),EditView.EMAIL,this,this);
         presenter = new LoginActivityPresenter(this);
         initToolbar();
     }

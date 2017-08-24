@@ -75,10 +75,10 @@ public class RegistrationActivity extends AppCompatActivity implements Validator
         mDob.init(getString(R.string.registration_dob),ButtonTextView.DOB, this);
         mMale.setClickable(true);
         mFemale.setClickable(true);
-        mNickName.init(getString(R.string.registration_nick),EditView.NICKNAME,this);
-        mDescription.init(getString(R.string.registration_desc),EditView.TEXT,this);
-        mPassword.init(getString(R.string.registration_pass),EditView.PASSWORD,this);
-        mEmail.init(getString(R.string.registration_email),EditView.EMAIL,this);
+        mNickName.init(getString(R.string.registration_nick),EditView.NICKNAME,this,this);
+        mDescription.init(getString(R.string.registration_desc),EditView.TEXT,this,this);
+        mPassword.init(getString(R.string.registration_pass),EditView.PASSWORD,this,this);
+        mEmail.init(getString(R.string.registration_email),EditView.EMAIL,this,this);
         mMale.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

@@ -1,5 +1,6 @@
 package zevioo.zampple.com.zevioo.view;
 
+import android.app.Activity;
 import android.content.Context;
 import android.graphics.Color;
 import android.support.v4.content.ContextCompat;
@@ -53,6 +54,7 @@ public class EditView extends RelativeLayout implements View.OnClickListener, Vi
     private boolean isValid;
     private ProgressBar progress;
     private Validator mValidator;
+    private Activity mActivity;
 
 
     public EditView(Context context, AttributeSet attrs) {
@@ -99,17 +101,18 @@ public class EditView extends RelativeLayout implements View.OnClickListener, Vi
         return isValid;
     }
 
-    public void init(String hint, int keyboardType, Validator validator) {
+    public void init(String hint, int keyboardType, Validator validator, Activity activity) {
         this.mHint = hint;
         this.mKeyboardType = keyboardType;
         this.mValidator = validator;
+        this.mActivity = activity;
         error.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (mKeyboardType == NICKNAME){
-                    hideError();
-                    validate();
-                } else {
+//                if (mKeyboardType == NICKNAME){
+//                    hideError();
+//                    validate();
+//                } else {
                     if (errorIsShown) {
                         errorIsShown = false;
                         hideError();
@@ -117,7 +120,7 @@ public class EditView extends RelativeLayout implements View.OnClickListener, Vi
                         errorIsShown = true;
                         showError();
                     }
-                }
+//                }
             }
         });
         inputType();
@@ -310,13 +313,22 @@ public class EditView extends RelativeLayout implements View.OnClickListener, Vi
     }
 
     @Override
-    public void onError(int ws, JSONObject response) throws JSONException {
+    public void onError(int ws, final JSONObject response) throws JSONException {
         if (isValid){
             mValidator.invalid();
         }
         isValid = false;
-        error_msg.setText(response.getString("MSG"));
-        error.setVisibility(View.VISIBLE);
+        mActivity.runOnUiThread(new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    error_msg.setText(response.getString("MSG"));
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+                error.setVisibility(View.VISIBLE);
+            }
+        });
     }
 
     @Override
