@@ -94,13 +94,12 @@ public class RegistrationActivityPresenter implements WSInformer {
 
                 @Override
                 public void onResultItem(Object item) {
-                    mActivity.dismissWait(messenger);
-                    mActivity.success();
                 }
 
                 @Override
                 public void insertedOk(long insertedId) {
-
+                    mActivity.dismissWait(messenger);
+                    mActivity.success();
                 }
                 @Override
                 public void actionOk() {

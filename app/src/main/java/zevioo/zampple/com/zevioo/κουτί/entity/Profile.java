@@ -145,7 +145,7 @@ public class Profile {
     }
 
     public JSONObject toJSON() throws JSONException {
-        SimpleDateFormat formater = new SimpleDateFormat("dd/MM/yyyy");
+        SimpleDateFormat formater = new SimpleDateFormat("yyyy-MM-dd");
         JSONObject object = new JSONObject();
         object.put("NCM",this.nickname);
         object.put("DTX",this.description);

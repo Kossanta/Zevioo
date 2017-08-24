@@ -22,10 +22,11 @@ public class Splash extends AppCompatActivity {
         ApplicationPreferences preferences = ((ApplicationClass) getApplicationContext()).getAppPrefs();
         if (preferences.getStringPreference(ApplicationPreferences.PERSONAL_PREFS, ApplicationPreferences.LOGGEDIN).equalsIgnoreCase("1")){
             // logged in
+            startActivity(new Intent(this,MainActivity.class));
         } else {
             // not logged in
             startActivity(new Intent(this,Start.class));
-            finish();
         }
+        finish();
     }
 }
