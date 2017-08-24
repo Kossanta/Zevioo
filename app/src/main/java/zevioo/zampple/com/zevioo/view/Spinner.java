@@ -7,6 +7,7 @@ import android.content.res.Resources;
 import android.graphics.Color;
 import android.support.v4.content.ContextCompat;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.AdapterView;
@@ -19,6 +20,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Locale;
 
 import zevioo.zampple.com.zevioo.R;
@@ -30,6 +32,7 @@ import zevioo.zampple.com.zevioo.ws.GetCountries;
 import zevioo.zampple.com.zevioo.ws.GetLanguages;
 import zevioo.zampple.com.zevioo.ws.WSInformer;
 import zevioo.zampple.com.zevioo.ws.WSTool;
+import zevioo.zampple.com.zevioo.κουτί.Executor;
 import zevioo.zampple.com.zevioo.κουτί.entity.SimpleItem;
 
 
@@ -209,8 +212,10 @@ public class Spinner extends RelativeLayout implements View.OnClickListener, WSI
         resultList = new ArrayList<>();
         if (ws == WSTool.GET_COUNTRIES){
             resultList = wsTool.parseSimpleItem(response, SimpleItem.COUNTRY);
+            replaceDbCountries(resultList);
         } else {
             resultList = wsTool.parseSimpleItem(response, SimpleItem.LANGUAGE);
+            replaceDbLanguages(resultList);
         }
         // TODO fill spinner with results
         final CustomSpinnerAdapter spinnerArrayAdapter = new CustomSpinnerAdapter(mContext, R.layout.spinner_item, resultList); //selected item will look like a spinner set from XML
@@ -225,6 +230,68 @@ public class Spinner extends RelativeLayout implements View.OnClickListener, WSI
                 mActivity.valid();
             }
         });
+    }
+
+    private void replaceDbCountries(final ArrayList<SimpleItem> list){
+        new Executor(mActivity.getApplicationContext(), new Executor.Result() {
+            @Override
+            @SuppressWarnings("unchecked")
+            public void onResultList(List listResult) {
+            }
+
+            @Override
+            public void onResultItem(Object item) {
+            }
+
+            @Override
+            public void insertedOk(long insertedId) {
+            }
+            @Override
+            public void actionOk() {
+                addAll(list);
+            }
+        }).deleteAllCountries();
+    }
+
+    private void addAll(ArrayList<SimpleItem> list){
+        new Executor(mActivity.getApplicationContext(), new Executor.Result() {
+            @Override
+            @SuppressWarnings("unchecked")
+            public void onResultList(List listResult) {
+            }
+
+            @Override
+            public void onResultItem(Object item) {
+            }
+
+            @Override
+            public void insertedOk(long insertedId) {
+            }
+            @Override
+            public void actionOk() {
+                Log.d("","");
+            }
+        }).addAll(list);
+    }
+    private void replaceDbLanguages(final ArrayList<SimpleItem> list){
+        new Executor(mActivity.getApplicationContext(), new Executor.Result() {
+            @Override
+            @SuppressWarnings("unchecked")
+            public void onResultList(List listResult) {
+            }
+
+            @Override
+            public void onResultItem(Object item) {
+            }
+
+            @Override
+            public void insertedOk(long insertedId) {
+            }
+            @Override
+            public void actionOk() {
+                addAll(list);
+            }
+        }).deleteAllLanguages();
     }
 
     @Override

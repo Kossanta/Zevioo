@@ -31,7 +31,16 @@ import java.util.Date;
 /**
  * Created by kgiannoulis on 18/8/2017
  */
-@Entity(tableName = "Profile")
+@Entity(tableName = "Profile", foreignKeys = {
+        @ForeignKey(entity = SimpleItem.class,
+                parentColumns = "item_id",
+                childColumns = "ctr",
+                onDelete = ForeignKey.CASCADE),
+        @ForeignKey(entity = SimpleItem.class,
+                parentColumns = "item_id",
+                childColumns = "lng",
+                onDelete = ForeignKey.CASCADE)},
+        indices = {@Index(value = "ctr"), @Index(value = "lng")})
 public class Profile {
     @PrimaryKey(autoGenerate = true)
     private int id;
@@ -43,11 +52,11 @@ public class Profile {
     @ColumnInfo(name = "gn") // M = Male, F = Female
     private String gender;
     private Date dob;
-    @ColumnInfo(name="ctr")
+    @ColumnInfo(name = "ctr")
     private String countryId;
-    @ColumnInfo(name="lng")
+    @ColumnInfo(name = "lng")
     private String languageId;
-    @ColumnInfo(name="eml")
+    @ColumnInfo(name = "eml")
     private String email;
     @ColumnInfo(name = "psw")
     private String password;
@@ -147,14 +156,14 @@ public class Profile {
     public JSONObject toJSON() throws JSONException {
         SimpleDateFormat formater = new SimpleDateFormat("yyyy-MM-dd");
         JSONObject object = new JSONObject();
-        object.put("NCM",this.nickname);
-        object.put("DTX",this.description);
-        object.put("GN",this.gender);
-        object.put("DOB",formater.format(this.dob));
-        object.put("CTR",this.countryId);
-        object.put("LNG",this.languageId);
-        object.put("EML",this.email);
-        object.put("PSW",this.password);
+        object.put("NCM", this.nickname);
+        object.put("DTX", this.description);
+        object.put("GN", this.gender);
+        object.put("DOB", formater.format(this.dob));
+        object.put("CTR", this.countryId);
+        object.put("LNG", this.languageId);
+        object.put("EML", this.email);
+        object.put("PSW", this.password);
         return object;
     }
 }

@@ -57,6 +57,9 @@ public interface SimpleItemDAO {
     @Insert(onConflict = IGNORE)
     long insertSimpleItem(SimpleItem item);
 
+    @Insert(onConflict = IGNORE)
+    void insertAll(List<SimpleItem> items);
+
     @Update(onConflict = REPLACE)
     void updateSimpleItem(SimpleItem item);
 

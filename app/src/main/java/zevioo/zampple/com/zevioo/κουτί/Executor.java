@@ -3,6 +3,7 @@ package zevioo.zampple.com.zevioo.κουτί;
 import android.content.Context;
 import android.os.AsyncTask;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import zevioo.zampple.com.zevioo.κουτί.entity.Profile;
@@ -169,6 +170,24 @@ public class Executor {
             @Override
             protected Object doInBackground(Object[] objects) {
                 mDb.simpleItemModel().deleteAllCountries();
+                return null;
+            }
+
+            @Override
+            protected void onPostExecute(Object o) {
+                super.onPostExecute(o);
+                mResult.actionOk();
+            }
+        };
+        task.execute();
+    }
+
+    public void addAll(final ArrayList<SimpleItem> list) {
+
+        AsyncTask task = new AsyncTask() {
+            @Override
+            protected Object doInBackground(Object[] objects) {
+                mDb.simpleItemModel().insertAll(list);
                 return null;
             }
 
