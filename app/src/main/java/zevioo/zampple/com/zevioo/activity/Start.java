@@ -4,6 +4,7 @@ import android.Manifest;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.graphics.Typeface;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
@@ -17,6 +18,9 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
+import android.widget.TextView;
+
+import org.w3c.dom.Text;
 
 import zevioo.zampple.com.zevioo.R;
 import zevioo.zampple.com.zevioo.adapter.StartPagerAdapter;
@@ -28,6 +32,7 @@ public class Start extends AppCompatActivity {
     LinearLayout pagerDots;
     private ImageView[] ivArrayDotsPager;
     RelativeLayout login, register;
+    TextView textaki, textaki1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,6 +42,13 @@ public class Start extends AppCompatActivity {
         pagerDots = (LinearLayout) findViewById(R.id.pager_dots);
         login = (RelativeLayout) findViewById(R.id.login);
         register = (RelativeLayout) findViewById(R.id.register);
+        textaki = (TextView) findViewById(R.id.textaki);
+        Typeface custom_font = Typeface.createFromAsset(getAssets(),  "fonts/hobo_std_medium.ttf");
+
+        textaki.setTypeface(custom_font);
+        textaki1 = (TextView) findViewById(R.id.textaki1);
+
+        textaki1.setTypeface(custom_font);
 //        login.setClickable(true);
         register.setClickable(true);
         login.setOnClickListener(new View.OnClickListener() {

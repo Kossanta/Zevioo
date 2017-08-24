@@ -10,7 +10,6 @@ import android.widget.Toast;
 import java.io.PrintWriter;
 import java.io.StringWriter;
 import java.io.Writer;
-
 import zevioo.zampple.com.zevioo.tools.LocaleHelper;
 import zevioo.zampple.com.zevioo.ws.WSTool;
 
@@ -33,7 +32,6 @@ public class ApplicationClass extends Application {
         super.onCreate();
         appPrefs = new ApplicationPreferences(this);
         APPLICATION_CLASS = this;
-
         // Setup handler for uncaught exceptions.
         Thread.setDefaultUncaughtExceptionHandler(new Thread.UncaughtExceptionHandler() {
             @Override

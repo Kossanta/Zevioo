@@ -205,10 +205,18 @@ public class EditView extends RelativeLayout implements View.OnClickListener, Vi
             CheckNickName checkNick = new CheckNickName(this,getValues(),mContext);
             checkNick.execute();
         } else if (mKeyboardType == EMAIL) {
+            boolean previousStatus = isValid;
             isValid = isEmailValid(data.getText().toString());
             if (!isValid){
                 error.setVisibility(View.VISIBLE);
                 error_msg.setText("Not valid email");
+                if (previousStatus){
+                    mValidator.invalid();
+                }
+            } else {
+                if (!previousStatus){
+                    mValidator.valid();
+                }
             }
         } else if (mKeyboardType == PASSWORD) {
             if (data.getText().toString().length()>=8){
