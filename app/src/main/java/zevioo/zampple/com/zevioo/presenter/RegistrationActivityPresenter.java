@@ -69,6 +69,27 @@ public class RegistrationActivityPresenter implements WSInformer {
 
     private Profile generateProfile() {
         userProfile =  new Profile(mNick, mDesc, "", mGender, mDob, mCountry, mLanguage, mEmail, mPass);
+        userProfile.setCid("666");
+        new Executor(mActivity.getApplicationContext(), new Executor.Result() {
+            @Override
+            @SuppressWarnings("unchecked")
+            public void onResultList(List listResult) {
+            }
+
+            @Override
+            public void onResultItem(Object item) {
+//                mActivity.dismissWait(messenger);
+                mActivity.success();
+            }
+
+            @Override
+            public void insertedOk(long insertedId) {
+
+            }
+            @Override
+            public void actionOk() {
+            }
+        }).addProfile(userProfile);
         return userProfile;
     }
 

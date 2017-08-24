@@ -102,9 +102,9 @@ public class Spinner extends RelativeLayout implements View.OnClickListener, WSI
                 mSelectedItem = resultList.get(position);
                 isValid = true;
                 focusOff();
-//                if (mType == LANGUAGES){
-//                    LocaleHelper.setLocale(mContext,mSelectedItem.getCode());
-//                }
+                if (mType == LANGUAGES){
+                    LocaleHelper.setLocale(mContext,(mSelectedItem.getCode().equalsIgnoreCase("gr"))?"el":mSelectedItem.getCode());
+                }
             }
 
             @Override

@@ -146,7 +146,40 @@ public class Executor {
         };
         task.execute();
     }
+    public void deleteAllLanguages() {
 
+        AsyncTask task = new AsyncTask() {
+            @Override
+            protected Object doInBackground(Object[] objects) {
+                mDb.simpleItemModel().deleteAllLanguages();
+                return null;
+            }
+
+            @Override
+            protected void onPostExecute(Object o) {
+                super.onPostExecute(o);
+                mResult.actionOk();
+            }
+        };
+        task.execute();
+    }
+    public void deleteAllCountries() {
+
+        AsyncTask task = new AsyncTask() {
+            @Override
+            protected Object doInBackground(Object[] objects) {
+                mDb.simpleItemModel().deleteAllCountries();
+                return null;
+            }
+
+            @Override
+            protected void onPostExecute(Object o) {
+                super.onPostExecute(o);
+                mResult.actionOk();
+            }
+        };
+        task.execute();
+    }
 
 
     public interface Result {

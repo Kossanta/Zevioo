@@ -2,6 +2,7 @@ package zevioo.zampple.com.zevioo.activity;
 
 import android.graphics.Color;
 import android.os.Bundle;
+import android.support.design.widget.CoordinatorLayout;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
@@ -26,14 +27,14 @@ public class LoginActivity extends AppCompatActivity implements Validator, Prese
     private int maxFields = 2;
     private int currentFilledFields = 0;
     private boolean proceed;
-    RelativeLayout parent_layout;
+    CoordinatorLayout parent_layout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.login_activity);
         proceed = false;
-        parent_layout = (RelativeLayout) findViewById(R.id.parent_layout);
+        parent_layout = (CoordinatorLayout) findViewById(R.id.parent_layout);
         mEmail = (EditView) findViewById(R.id.email);
         mPassword = (EditView) findViewById(R.id.password);
         mPassword.init(getString(R.string.registration_pass),EditView.PASSWORD,this);

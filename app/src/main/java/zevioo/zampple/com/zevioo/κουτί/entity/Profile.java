@@ -31,16 +31,7 @@ import java.util.Date;
 /**
  * Created by kgiannoulis on 18/8/2017
  */
-@Entity(tableName = "Profile", foreignKeys = {
-        @ForeignKey(entity = SimpleItem.class,
-                parentColumns = "item_id",
-                childColumns = "ctr",
-                onDelete = ForeignKey.CASCADE),
-        @ForeignKey(entity = SimpleItem.class,
-                parentColumns = "item_id",
-                childColumns = "lng",
-                onDelete = ForeignKey.CASCADE)},
-        indices = {@Index(value="ctr"),@Index(value="lng")})
+@Entity(tableName = "Profile")
 public class Profile {
     @PrimaryKey(autoGenerate = true)
     private int id;

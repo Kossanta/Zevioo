@@ -2,6 +2,7 @@ package zevioo.zampple.com.zevioo.activity;
 
 import android.graphics.Color;
 import android.os.Bundle;
+import android.support.design.widget.CoordinatorLayout;
 import android.support.design.widget.Snackbar;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
@@ -40,7 +41,8 @@ public class RegistrationActivity extends AppCompatActivity implements Validator
     private int currentFilledFields = 0;
     private boolean proceed,agree_terms;
     RegistrationActivityPresenter presenter;
-    RelativeLayout parent_layout, terms_layout;
+    CoordinatorLayout parent_layout;
+    RelativeLayout terms_layout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,7 +51,7 @@ public class RegistrationActivity extends AppCompatActivity implements Validator
         proceed = false;
         mGenderValue = "";
         agree_terms = false;
-        parent_layout = (RelativeLayout) findViewById(R.id.parent_layout);
+        parent_layout = (CoordinatorLayout) findViewById(R.id.parent_layout);
         mTermsImg = (ImageView) findViewById(R.id.terms_check);
         terms_layout = (RelativeLayout) findViewById(R.id.terms_layout);
         terms_layout.setClickable(true);

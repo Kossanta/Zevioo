@@ -1,6 +1,7 @@
 package zevioo.zampple.com.zevioo.adapter;
 
 import android.content.Context;
+import android.graphics.Typeface;
 import android.support.v4.view.PagerAdapter;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -24,9 +25,11 @@ public class StartPagerAdapter extends PagerAdapter {
     LayoutInflater mLayoutInflater;
     ArrayList<String> mTitles;
     ArrayList<Integer> mResources;
+    Typeface custom_font;
 
     public StartPagerAdapter(Context context) {
         mContext = context;
+        custom_font = Typeface.createFromAsset(mContext.getAssets(),  "fonts/hobo_std_medium.ttf");
         mLayoutInflater = (LayoutInflater) mContext.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         initResources();
     }
@@ -60,7 +63,7 @@ public class StartPagerAdapter extends PagerAdapter {
         imageView.setImageResource(mResources.get(position));
         TextView textView = (TextView) itemView.findViewById(R.id.tv);
         textView.setText(mTitles.get(position));
-
+        textView.setTypeface(custom_font);
         container.addView(itemView);
 
         return itemView;

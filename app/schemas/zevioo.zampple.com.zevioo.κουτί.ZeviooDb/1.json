@@ -2,11 +2,11 @@
   "formatVersion": 1,
   "database": {
     "version": 1,
-    "identityHash": "2e7b499b9a6eac9dd0abd0ac6761c5c4",
+    "identityHash": "d9ab8f82c2bf4db0bb72c654bd04ea06",
     "entities": [
       {
         "tableName": "Profile",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT, `ncm` TEXT, `dtx` TEXT, `cid` TEXT, `gn` TEXT, `dob` INTEGER, `ctr` TEXT, `lng` TEXT, `eml` TEXT, `psw` TEXT, FOREIGN KEY(`ctr`) REFERENCES `SimpleItem`(`item_id`) ON UPDATE NO ACTION ON DELETE CASCADE , FOREIGN KEY(`lng`) REFERENCES `SimpleItem`(`item_id`) ON UPDATE NO ACTION ON DELETE CASCADE )",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT, `ncm` TEXT, `dtx` TEXT, `cid` TEXT, `gn` TEXT, `dob` INTEGER, `ctr` TEXT, `lng` TEXT, `eml` TEXT, `psw` TEXT)",
         "fields": [
           {
             "fieldPath": "id",
@@ -65,48 +65,8 @@
           ],
           "autoGenerate": true
         },
-        "indices": [
-          {
-            "name": "index_Profile_ctr",
-            "unique": false,
-            "columnNames": [
-              "ctr"
-            ],
-            "createSql": "CREATE  INDEX `index_Profile_ctr`\nON `${TABLE_NAME}` (`ctr`)"
-          },
-          {
-            "name": "index_Profile_lng",
-            "unique": false,
-            "columnNames": [
-              "lng"
-            ],
-            "createSql": "CREATE  INDEX `index_Profile_lng`\nON `${TABLE_NAME}` (`lng`)"
-          }
-        ],
-        "foreignKeys": [
-          {
-            "table": "SimpleItem",
-            "onDelete": "CASCADE",
-            "onUpdate": "NO ACTION",
-            "columns": [
-              "ctr"
-            ],
-            "referencedColumns": [
-              "item_id"
-            ]
-          },
-          {
-            "table": "SimpleItem",
-            "onDelete": "CASCADE",
-            "onUpdate": "NO ACTION",
-            "columns": [
-              "lng"
-            ],
-            "referencedColumns": [
-              "item_id"
-            ]
-          }
-        ]
+        "indices": [],
+        "foreignKeys": []
       },
       {
         "tableName": "SimpleItem",
@@ -144,22 +104,13 @@
           ],
           "autoGenerate": true
         },
-        "indices": [
-          {
-            "name": "index_SimpleItem_item_id",
-            "unique": true,
-            "columnNames": [
-              "item_id"
-            ],
-            "createSql": "CREATE UNIQUE INDEX `index_SimpleItem_item_id`\nON `${TABLE_NAME}` (`item_id`)"
-          }
-        ],
+        "indices": [],
         "foreignKeys": []
       }
     ],
     "setupQueries": [
       "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
-      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, \"2e7b499b9a6eac9dd0abd0ac6761c5c4\")"
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, \"d9ab8f82c2bf4db0bb72c654bd04ea06\")"
     ]
   }
 }

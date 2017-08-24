@@ -9,8 +9,7 @@ import org.json.JSONObject;
 /**
  * Created by kgiannoulis on 10/8/2017
  */
-@Entity(tableName = "SimpleItem",indices = {@Index(value = {"item_id"},
-        unique = true)})
+@Entity(tableName = "SimpleItem")
 public class SimpleItem {
 
     @PrimaryKey(autoGenerate = true)

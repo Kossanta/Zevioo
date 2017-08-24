@@ -32,7 +32,7 @@ public class Start extends AppCompatActivity {
     LinearLayout pagerDots;
     private ImageView[] ivArrayDotsPager;
     RelativeLayout login, register;
-    TextView textaki, textaki1;
+    TextView textaki, textaki1, title, subtitle;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,11 +43,14 @@ public class Start extends AppCompatActivity {
         login = (RelativeLayout) findViewById(R.id.login);
         register = (RelativeLayout) findViewById(R.id.register);
         textaki = (TextView) findViewById(R.id.textaki);
+        title = (TextView) findViewById(R.id.title);
+        subtitle = (TextView) findViewById(R.id.subtitle);
         Typeface custom_font = Typeface.createFromAsset(getAssets(),  "fonts/hobo_std_medium.ttf");
 
         textaki.setTypeface(custom_font);
         textaki1 = (TextView) findViewById(R.id.textaki1);
-
+        title.setTypeface(custom_font);
+        subtitle.setTypeface(custom_font);
         textaki1.setTypeface(custom_font);
 //        login.setClickable(true);
         register.setClickable(true);

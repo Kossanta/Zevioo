@@ -1,181 +1,200 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_width="match_parent"
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/parent_layout"
-    android:layout_height="match_parent">
-    <android.support.v7.widget.Toolbar
-        android:id="@+id/toolbar"
-        android:layout_width="match_parent"
-        android:background="@android:color/transparent"
-        android:layout_height="wrap_content"
-        android:fitsSystemWindows="true"/>
-
-   <RelativeLayout
-       android:id="@+id/logo_layout"
-       android:layout_width="match_parent"
-       android:layout_height="wrap_content"
-       android:layout_marginTop="56dp"
-       android:descendantFocusability="beforeDescendants"
-       android:focusable="true"
-       android:focusableInTouchMode="true">
-
-      <ImageView
-          android:layout_width="40dp"
-          android:id="@+id/logo"
-          android:src="@drawable/logo"
-          android:layout_centerHorizontal="true"
-          android:layout_height="40dp" />
-      <TextView
-          android:layout_width="match_parent"
-          android:id="@+id/title"
-          android:layout_below="@+id/logo"
-          android:text="Become a popular Zeviooer"
-          android:gravity="center"
-          android:textSize="22sp"
-          android:layout_height="wrap_content" />
-</RelativeLayout>
-      <android.support.v4.widget.NestedScrollView
-          android:id="@+id/scroll"
-          android:layout_width="match_parent"
-          android:layout_height="match_parent"
-          android:layout_below="@+id/logo_layout"
-          android:layout_marginTop="8dp">
-
-      <LinearLayout
-          android:layout_width="match_parent"
-          android:layout_height="match_parent"
-          android:orientation="vertical">
-
-
-         <zevioo.zampple.com.zevioo.view.EditView
-             android:id="@+id/nickname"
-             android:layout_width="match_parent"
-             android:layout_height="wrap_content"/>
-
-         <zevioo.zampple.com.zevioo.view.EditView
-             android:id="@+id/description"
-             android:layout_width="match_parent"
-             android:layout_height="wrap_content"/>
-<LinearLayout
     android:layout_width="match_parent"
-    android:orientation="horizontal"
-    android:layout_marginStart="16dp"
-    android:layout_marginEnd="16dp"
-    android:layout_height="wrap_content">
-   <RelativeLayout
-       android:id="@+id/male"
-       android:layout_width="0dp"
-       android:layout_weight="1"
-       android:minHeight="48dp"
-       android:layout_height="wrap_content">
-<ImageView
-    android:id="@+id/male_img"
-    android:layout_width="wrap_content"
-    android:layout_centerVertical="true"
-    android:src="@drawable/gender_empty"
-    android:layout_height="wrap_content" />
-      <TextView
-          android:id="@+id/male_text"
-          android:layout_toEndOf="@+id/male_img"
-          android:layout_marginStart="8dp"
-          android:textSize="18sp"
-          android:textColor="@color/lighter_gray"
-          android:layout_centerVertical="true"
-          android:text="@string/registration_male"
-          android:layout_width="wrap_content"
-          android:layout_height="wrap_content" />
+    android:layout_height="match_parent">
 
-   </RelativeLayout>
-   <RelativeLayout
-       android:id="@+id/female"
-       android:minHeight="48dp"
-       android:layout_width="0dp"
-       android:layout_weight="1"
-       android:layout_height="wrap_content">
-      <ImageView
-          android:id="@+id/female_img"
-          android:layout_width="wrap_content"
-          android:layout_centerVertical="true"
-          android:src="@drawable/gender_empty"
-          android:layout_height="wrap_content" />
-      <TextView
-          android:id="@+id/female_text"
-          android:layout_toEndOf="@+id/female_img"
-          android:layout_marginStart="8dp"
-          android:textColor="@color/lighter_gray"
-          android:textSize="18sp"
-          android:layout_centerVertical="true"
-          android:text="@string/registration_female"
-          android:layout_width="wrap_content"
-          android:layout_height="wrap_content" />
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
-   </RelativeLayout>
-</LinearLayout>
-         <View
-             android:layout_width="match_parent"
-             android:layout_height="1dp"
-             android:layout_marginStart="8dp"
-             android:layout_marginEnd="8dp"
-             android:background="#000000" />
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@android:color/transparent"
+            android:fitsSystemWindows="true" />
 
-
-          <zevioo.zampple.com.zevioo.view.ButtonTextView
-              android:id="@+id/dob"
-              android:layout_width="match_parent"
-              android:layout_height="wrap_content"/>
-         <zevioo.zampple.com.zevioo.view.Spinner
-             android:id="@+id/country"
-             android:layout_width="match_parent"
-             android:layout_height="wrap_content"/>
-         <zevioo.zampple.com.zevioo.view.Spinner
-             android:id="@+id/language"
-             android:layout_width="match_parent"
-             android:layout_height="wrap_content"/>
-
-         <zevioo.zampple.com.zevioo.view.EditView
-             android:id="@+id/email"
-             android:layout_width="match_parent"
-             android:layout_height="wrap_content"/>
-
-
-         <zevioo.zampple.com.zevioo.view.EditView
-             android:id="@+id/password"
-             android:layout_width="match_parent"
-             android:layout_height="wrap_content"/>
-         <TextView
-             android:layout_marginStart="16dp"
-             android:layout_marginEnd="16dp"
-             android:layout_marginTop="4dp"
-             android:textSize="12sp"
-             android:text="@string/password_explain"
-             android:layout_width="match_parent"
-             android:layout_height="wrap_content" />
-
-         <RelativeLayout
-             android:id="@+id/terms_layout"
-             android:layout_margin="16dp"
-             android:layout_width="match_parent"
-             android:layout_height="wrap_content">
+        <RelativeLayout
+            android:id="@+id/logo_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="56dp"
+            android:descendantFocusability="beforeDescendants"
+            android:focusable="true"
+            android:focusableInTouchMode="true">
 
             <ImageView
-                android:id="@+id/terms_check"
-                android:layout_width="wrap_content"
-                android:layout_centerVertical="true"
-                android:src="@drawable/gender_empty"
-                android:layout_height="wrap_content" />
+                android:id="@+id/logo"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_centerHorizontal="true"
+                android:src="@drawable/logo" />
+
             <TextView
-                android:layout_toEndOf="@+id/terms_check"
-                android:layout_marginStart="16dp"
-                android:textSize="14sp"
-                android:layout_centerVertical="true"
-                android:text="@string/registrations_terms"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
-         </RelativeLayout>
+                android:id="@+id/title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/logo"
+                android:gravity="center"
+                android:text="Become a popular Zeviooer"
+                android:textSize="22sp" />
+        </RelativeLayout>
+
+        <android.support.v4.widget.NestedScrollView
+            android:id="@+id/scroll"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/logo_layout"
+            android:layout_marginTop="8dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
 
 
-          </LinearLayout>
-</android.support.v4.widget.NestedScrollView>
+                <zevioo.zampple.com.zevioo.view.EditView
+                    android:id="@+id/nickname"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
 
-      </RelativeLayout>
+                <zevioo.zampple.com.zevioo.view.EditView
+                    android:id="@+id/description"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="16dp"
+                    android:layout_marginStart="16dp"
+                    android:orientation="horizontal">
+
+                    <RelativeLayout
+                        android:id="@+id/male"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:minHeight="48dp">
+
+                        <ImageView
+                            android:id="@+id/male_img"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:src="@drawable/gender_empty" />
+
+                        <TextView
+                            android:id="@+id/male_text"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:layout_marginStart="8dp"
+                            android:layout_toEndOf="@+id/male_img"
+                            android:text="@string/registration_male"
+                            android:textColor="@color/lighter_gray"
+                            android:textSize="18sp" />
+
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:id="@+id/female"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:minHeight="48dp">
+
+                        <ImageView
+                            android:id="@+id/female_img"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:src="@drawable/gender_empty" />
+
+                        <TextView
+                            android:id="@+id/female_text"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:layout_marginStart="8dp"
+                            android:layout_toEndOf="@+id/female_img"
+                            android:text="@string/registration_female"
+                            android:textColor="@color/lighter_gray"
+                            android:textSize="18sp" />
+
+                    </RelativeLayout>
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginEnd="8dp"
+                    android:layout_marginStart="8dp"
+                    android:background="#000000" />
+
+
+                <zevioo.zampple.com.zevioo.view.ButtonTextView
+                    android:id="@+id/dob"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+                <zevioo.zampple.com.zevioo.view.Spinner
+                    android:id="@+id/country"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+                <zevioo.zampple.com.zevioo.view.Spinner
+                    android:id="@+id/language"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+                <zevioo.zampple.com.zevioo.view.EditView
+                    android:id="@+id/email"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+
+                <zevioo.zampple.com.zevioo.view.EditView
+                    android:id="@+id/password"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="16dp"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="4dp"
+                    android:text="@string/password_explain"
+                    android:textSize="12sp" />
+
+                <RelativeLayout
+                    android:id="@+id/terms_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="16dp">
+
+                    <ImageView
+                        android:id="@+id/terms_check"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:src="@drawable/gender_empty" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginStart="16dp"
+                        android:layout_toEndOf="@+id/terms_check"
+                        android:text="@string/registrations_terms"
+                        android:textSize="14sp" />
+                </RelativeLayout>
+
+
+            </LinearLayout>
+        </android.support.v4.widget.NestedScrollView>
+
+    </RelativeLayout>
+</android.support.design.widget.CoordinatorLayout>
