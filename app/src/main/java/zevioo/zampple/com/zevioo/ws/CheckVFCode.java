@@ -12,7 +12,6 @@ import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.io.OutputStreamWriter;
 import java.net.URL;
-import java.util.Map;
 
 import javax.net.ssl.HttpsURLConnection;
 import javax.net.ssl.SSLHandshakeException;
@@ -28,16 +27,13 @@ public class CheckVFCode extends AsyncTask<Void, Void, Void> {
 
     private String mRequest;
     private WSInformer mInformer;
-    private Map<String, Object> mRequestList;
+    private String mCode;
     private Context mContext;
 
-    public CheckVFCode(WSInformer wsInformer, Map<String, Object> requestList, Context context) {
+    public CheckVFCode(WSInformer wsInformer, String code, Context context) {
         this.mInformer = wsInformer;
-        this.mRequestList = requestList;
+        this.mCode = code;
         this.mContext = context;
-    }
-
-    public void init() {
         mRequest = getRequest();
     }
 
@@ -126,19 +122,16 @@ public class CheckVFCode extends AsyncTask<Void, Void, Void> {
     /**
      * "CID": "7962b7cb-616a-4dc8-9df0-86816a6e13ec",
      * "VL": "1249"
-     *
+     * <p>
      * Property Names:
      * CID = Customer ID
      * VL = 4-digit verification code
-     *
      */
     private JSONObject getRequest1() throws JSONException {
         JSONObject object = new JSONObject();
         ApplicationPreferences mPreferences = ((ApplicationClass) mContext.getApplicationContext()).getAppPrefs();
         object.put(ApplicationPreferences.CID, mPreferences.getStringPreference(ApplicationPreferences.PERSONAL_PREFS, ApplicationPreferences.CID));
-        if (mRequestList.containsKey("VL")) {
-            object.put("VL", mRequestList.get("VL"));
-        }
+        object.put("VL", mCode);
         return object;
     }
 

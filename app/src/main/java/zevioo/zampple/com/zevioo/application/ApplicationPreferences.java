@@ -12,6 +12,7 @@ public class ApplicationPreferences {
      */
     public static final String CID = "CID";
     public static final String LOGGEDIN = "logged";
+    public static final String VALIDATED = "validated";
 
 
     /**
@@ -124,6 +125,16 @@ public class ApplicationPreferences {
         } else {
             return applicationPrefs.getBoolean(key, false);
         }
+    }
+
+    public boolean isValidated(){
+        return personalPrefs.getBoolean(VALIDATED, false);
+    }
+
+
+    public void accountIsValidated(){
+        personalPrefsEditor.putBoolean(VALIDATED, true);
+        personalPrefsEditor.commit();
     }
 
     public void saveStringPreference(String name, String key, String value) {

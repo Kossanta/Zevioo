@@ -15,7 +15,9 @@
     <string name="password_explain">Ο κωδικός που θα επιλέξετε πρέπει να έχει τουλάχιστον 8 χαρακτήρες</string>
     <string name="registrations_terms">Έχω διαβάσει την Πολιτική Απορρήτου και αποδέχομαι τους Όρους Χρήσης.</string>
     <string name="registration_dob">Ημερομηνία γέννησης</string>
-
+    <string name="validate_text1">Μόλις αποστείλαμε ένα 4-ψήφιο κωδικό στο email που δηλώσατε στο προηγούμενο βήμα.</string>
+    <string name="validate_text2">Θυμηθείτε να χρησιμοποιείτε αυτό το email όταν κάνετε αγορές online για να μπορούμε να συνδέουμε τα προϊόντα που δοκιμάζετε και να σας δίνουμε τη δυνατότητα να τα αξιολογείτε ως “Επιβεβαιωμένες αγορές”. Τέτοιες αξιολογήσεις είναι πιο αξιόπιστες και προσελκύουν περισσότερους followers. Αν έχετε κι άλλο email που χρησιμοποιείτε, μπορείτε να τον προσθέσετε μέσα από το Προφίλ σας. </string>
+    <string name="validate_title">Βάλτε τον κωδικό που σας αποστείλαμε σε email.</string>
 
     <string name="login_forgot_pass">Ξέχασα τον κωδικό μου.</string>
 
@@ -24,6 +26,7 @@
     <!-- Menus -->
     <string name="menu_register">Εγγραφή</string>
     <string name="menu_login">Σύνδεση</string>
+    <string name="menu_next">Επόμενο</string>
     <!-- Permissions -->
     <string name="ok">OK</string>
     <string name="cancel">ΑΚΥΡΩΣΗ</string>
@@ -36,5 +39,6 @@
     <string name="snack_no_internet">Δεν υπάρχει σύνδεση στο διαδίκτυο. Παρακαλώ συνδεθείτε και προσπαθήστε ξανά</string>
     <string name="msg1">Δημιουργία Προφίλ...</string>
     <string name="msg3">Είσοδος...</string>
+    <string name="msg5">Επαλήθευση...</string>
     <string name="msg2">Ενημέρωση του προφίλ σας...</string>
 </resources>

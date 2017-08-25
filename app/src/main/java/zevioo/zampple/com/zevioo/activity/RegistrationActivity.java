@@ -1,5 +1,6 @@
 package zevioo.zampple.com.zevioo.activity;
 
+import android.app.Application;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
@@ -205,9 +206,11 @@ public class RegistrationActivity extends AppCompatActivity implements Validator
     }
 
     public void success(){
-        // TODO move to next activity main
-        startActivity(new Intent(this,MainActivity.class));
-        Log.d("","");
+        if (ApplicationClass.getInstance().getAppPrefs().isValidated()){
+            startActivity(new Intent(this, MainActivity.class));
+        } else {
+            startActivity(new Intent(this, ValidateActivity.class));
+        }
     }
 
     @Override

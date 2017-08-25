@@ -16,7 +16,9 @@
     <string name="password_explain">Your password must be at least 8 characters</string>
     <string name="registrations_terms">I have read the Privacy Policy and agree to the Terms of Service.</string>
     <string name="registration_dob">Date of birth</string>
-
+    <string name="validate_text1">We just sent a 4-digit verification code to the email you provided in the previous step.</string>
+    <string name="validate_text2">Remember to use this email account when you shop online, in order to verify the products you have tried and receive reviews of “Veriﬁed purchases”. These reviews are far more credible and attract more followers. If you use more than one email accounts, you can add them all through your Proﬁle within the app.</string>
+    <string name="validate_title">Put below the 4-digit code we sent you via email.</string>
 
     <string name="login_forgot_pass">Forgot my password.</string>
 
@@ -24,6 +26,7 @@
     <!-- Menus -->
     <string name="menu_register">Sign up</string>
     <string name="menu_login">Sign in</string>
+    <string name="menu_next">Next</string>
     <!-- Permissions -->
     <string name="ok">OK</string>
     <string name="cancel">Cancel</string>
@@ -36,5 +39,6 @@
     <string name="snack_no_internet">Internet connection unavailable. Please connect to a network and try again</string>
     <string name="msg1">Creating your profile...</string>
     <string name="msg3">Logging in...</string>
+    <string name="msg5">Validating...</string>
     <string name="msg2">Updating your profile...</string>
 </resources>

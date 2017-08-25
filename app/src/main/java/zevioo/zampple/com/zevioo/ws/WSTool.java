@@ -177,6 +177,9 @@ public class WSTool {
             case 3:
                 message = clas.getString(R.string.msg3);
                 break;
+            case 5:
+                message = clas.getString(R.string.msg5);
+                break;
         }
         return message;
     }
