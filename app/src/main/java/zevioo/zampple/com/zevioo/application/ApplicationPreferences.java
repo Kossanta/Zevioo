@@ -13,6 +13,20 @@ public class ApplicationPreferences {
     public static final String CID = "CID";
     public static final String LOGGEDIN = "logged";
     public static final String VALIDATED = "validated";
+    public static final String GDPR = "gdpr";
+    public static final String A1 = "a1";
+    public static final String A2 = "a2";
+    public static final String A3 = "a3";
+    public static final String A4 = "a4";
+    public static final String A5 = "a5";
+
+    public static final String B1 = "b1";
+    public static final String B2 = "b2";
+    public static final String B3 = "b3";
+    public static final String B4 = "b4";
+
+    public static final String C1 = "c1";
+    public static final String C2 = "c2";
 
 
     /**
@@ -91,6 +105,7 @@ public class ApplicationPreferences {
             return applicationPrefs.getInt(key, 0);
         }
     }
+
     public String getStringPreference(String name, String key) {
         if (name.equalsIgnoreCase(PREFS_NAME)) {
             return prefs.getString(key, "");
@@ -127,15 +142,46 @@ public class ApplicationPreferences {
         }
     }
 
-    public boolean isValidated(){
+    public boolean isValidated() {
         return personalPrefs.getBoolean(VALIDATED, false);
     }
 
 
-    public void accountIsValidated(){
+    public void accountIsValidated() {
         personalPrefsEditor.putBoolean(VALIDATED, true);
         personalPrefsEditor.commit();
     }
+
+    public boolean isGDPRConsented() {
+        return personalPrefs.getBoolean(GDPR, false);
+    }
+
+
+    public void GDPRConsented() {
+        personalPrefsEditor.putBoolean(GDPR, true);
+        personalPrefsEditor.commit();
+    }
+
+    public boolean isGDPRPreferencesOK() {
+        return (getBooleanPreference(PERSONAL_PREFS, A1)
+                && getBooleanPreference(PERSONAL_PREFS, A2)
+                && getBooleanPreference(PERSONAL_PREFS, A3)
+                && getBooleanPreference(PERSONAL_PREFS, A4)
+                && getBooleanPreference(PERSONAL_PREFS, A5));
+    }
+
+    public boolean isGDPRReviewsOK() {
+        return (getBooleanPreference(PERSONAL_PREFS, B1)
+                && getBooleanPreference(PERSONAL_PREFS, B2)
+                && getBooleanPreference(PERSONAL_PREFS, B3)
+                && getBooleanPreference(PERSONAL_PREFS, B4));
+    }
+
+    public boolean isGDPRPurchasesOK() {
+        return (getBooleanPreference(PERSONAL_PREFS, C1)
+                && getBooleanPreference(PERSONAL_PREFS, C2));
+    }
+
 
     public void saveStringPreference(String name, String key, String value) {
         if (name.equalsIgnoreCase(PREFS_NAME)) {

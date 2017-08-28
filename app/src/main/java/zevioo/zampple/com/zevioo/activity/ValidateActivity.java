@@ -7,14 +7,15 @@ import android.support.design.widget.CoordinatorLayout;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
 
 import zevioo.zampple.com.zevioo.R;
+import zevioo.zampple.com.zevioo.activity.gdpr.GDPRMain;
 import zevioo.zampple.com.zevioo.application.ApplicationClass;
+import zevioo.zampple.com.zevioo.application.ApplicationPreferences;
 import zevioo.zampple.com.zevioo.presenter.PresenterCallbacks;
 import zevioo.zampple.com.zevioo.presenter.ValidateActivityPresenter;
 import zevioo.zampple.com.zevioo.presenter.Validator;
@@ -102,7 +103,12 @@ public class ValidateActivity extends AppCompatActivity implements Validator, Pr
     }
 
     public void success() {
-        startActivity(new Intent(this, MainActivity.class));
+        ApplicationPreferences preferences = ((ApplicationClass) getApplicationContext()).getAppPrefs();
+        if (preferences.isGDPRConsented()) {
+            startActivity(new Intent(this, MainActivity.class));
+        } else {
+            startActivity(new Intent(this, GDPRMain.class));
+        }
     }
 
     @Override

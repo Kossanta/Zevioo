@@ -19,14 +19,55 @@
     <string name="validate_text1">We just sent a 4-digit verification code to the email you provided in the previous step.</string>
     <string name="validate_text2">Remember to use this email account when you shop online, in order to verify the products you have tried and receive reviews of “Veriﬁed purchases”. These reviews are far more credible and attract more followers. If you use more than one email accounts, you can add them all through your Proﬁle within the app.</string>
     <string name="validate_title">Put below the 4-digit code we sent you via email.</string>
+    <string name="gdpr_main_text">We save and process your personal data according to the latest European Regulation (GDPR), in order to oﬀer you personalised content and services. We work with companies that produce products to constantly improve the recommendations we send you. You have full control of all your data at any given time.</string>
+    <string name="gdpr_main_action1">OK. I consent</string>
+    <string name="gdpr_main_action2">Privacy configuration</string>
+    <string name="gdpr_result">Accept all</string>
+    <string name="gdpr_configuration_title">Privacy</string>
+    <string name="gdpr_configuration_text">We collect and process the below personal data according to GDPR, in order to oﬀer you personalised services. However, you can always limit the process of your personal data and receive generic content and recommendations.</string>
 
+    <string name="gdpr_preferences_title">Preferences</string>
+    <string name="gdpr_reviews_title">Reviews</string>
+    <string name="gdpr_purchases_title">Purchases &amp; Contacts</string>
+
+    <string name="gdpr_dialog_title">Are you sure?</string>
+    <string name="gdpr_dialog_message">Disable this option will result in receiving recommendations and services that are not so relevant, while all your existing data will be deleted</string>
+    <string name="gdpr_dialog_ok">Yes, I’m sure</string>
+    <string name="gdpr_dialog_no">Cancel</string>
     <string name="login_forgot_pass">Forgot my password.</string>
 
+
+    <!-- GDPR preferences -->
+    <string name="a1_title">Categories of interest</string>
+    <string name="a1_description">If you disable this option you will receive recommendations for all categories.</string>
+    <string name="a2_title">Favorites</string>
+    <string name="a2_description">If you disable this option you will not be able to save products you like.</string>
+    <string name="a3_title">Additional Profile information</string>
+    <string name="a3_description">Zevioo uses AI technology to personalise every recommendation according to your special characteristics. If you disable this option you will receive generic content.</string>
+    <string name="a4_title">Members I follow</string>
+    <string name="a4_description">If you disable this option you will not be able to follow specific members while existing data will be deleted.</string>
+    <string name="a5_title">Data sharing</string>
+    <string name="a5_description">This option allows zevioo to share some of your personal data (without identifying you), like the products you like or you don’t, with other members and partners.</string>
+    <!-- GDPR reviews -->
+    <string name="b1_title">Rating &amp; comments</string>
+    <string name="b1_description">If you disable this option you will not be able to review products. As a result, we will not know what you like and what you don’t in order to send you personalised recommendations.</string>
+    <string name="b2_title">Useful or not</string>
+    <string name="b2_description">If you disable this option you will not be able to ﬂag a review/recommendation as useful or not.. As a result, we will not know what you like and what you don’t in order to send you personalised recommendations.</string>
+    <string name="b3_title">Communication with members</string>
+    <string name="b3_description">If you disable this option you will not be able to communicate with other members through personal messages.</string>
+    <string name="b4_title">Data sharing</string>
+    <string name="b4_description">This option allows zevioo to share some of your personal data (without identifying you), like your ratings with your comments and the photos you upload, with other members and partners.</string>
+    <!-- GDPR purchases -->
+    <string name="c1_title">Purchase data</string>
+    <string name="c1_description">We collect and process your purchase data from partner shops in order to select the products we will suggest you to review. If you disable this option we will not send you emails for review and your reviews will appear as “Not Veriﬁed Purchase” even if you have purchased the products you review.</string>
+    <string name="c2_title">Contacts</string>
+    <string name="c2_description">We collect contact information of your friends in order for you to invite them to our community and have them follow your posts. If you disable this option you will not be able to invite your friends while all your existing data will be deleted.</string>
 
     <!-- Menus -->
     <string name="menu_register">Sign up</string>
     <string name="menu_login">Sign in</string>
     <string name="menu_next">Next</string>
+    <string name="menu_done">Done</string>
     <!-- Permissions -->
     <string name="ok">OK</string>
     <string name="cancel">Cancel</string>

@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@android:color/transparent"
+        android:fitsSystemWindows="true" />
+
+    <ImageView
+        android:id="@+id/icon_shield"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_below="@+id/toolbar"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="8dp"
+        android:src="@drawable/shield" />
+
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/icon_shield"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="16dp"
+        android:gravity="center"
+        android:text="@string/gdpr_main_action2"
+        android:textSize="18sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/text1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/title"
+        android:layout_marginEnd="16dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:gravity="center"
+        android:text="@string/gdpr_configuration_text"
+        android:textSize="15sp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_below="@+id/text1"
+        android:layout_marginBottom="32dp"
+        android:layout_marginTop="32dp"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:id="@+id/preferences_layout"
+            android:layout_width="match_parent"
+            android:layout_height="48dp">
+
+            <ImageView
+                android:id="@+id/preferences_icon"
+                android:layout_centerVertical="true"
+                android:layout_margin="8dp"
+                android:layout_width="40dp"
+                android:src="@drawable/preferences_icon"
+                android:layout_height="40dp" />
+            <TextView
+                android:id="@+id/preferences_text"
+                android:layout_toEndOf="@+id/preferences_icon"
+                android:layout_centerVertical="true"
+                android:layout_toStartOf="@+id/preferences_result"
+                android:layout_width="match_parent"
+                android:textStyle="bold"
+                android:textSize="15sp"
+                android:text="@string/gdpr_preferences_title"
+                android:layout_height="wrap_content" />
+            <TextView
+                android:id="@+id/preferences_result"
+                android:layout_toStartOf="@+id/preferences_ic"
+                android:layout_centerVertical="true"
+                android:layout_width="wrap_content"
+                android:text="@string/gdpr_result"
+                android:textSize="12sp"
+                android:layout_height="wrap_content" />
+            <ImageView
+                android:id="@+id/preferences_ic"
+                android:layout_alignParentEnd="true"
+                android:src="@drawable/back"
+                android:rotation="180"
+                android:layout_centerVertical="true"
+                android:layout_width="40dp"
+                android:layout_height="40dp" />
+
+        </RelativeLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:background="@color/black" />
+
+        <RelativeLayout
+            android:id="@+id/reviews_layout"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:layout_marginTop="1dp">
+            <ImageView
+                android:id="@+id/reviews_icon"
+                android:layout_centerVertical="true"
+                android:layout_margin="8dp"
+                android:layout_width="40dp"
+                android:src="@drawable/reviews_icon"
+                android:layout_height="40dp" />
+            <TextView
+                android:id="@+id/reviews_text"
+                android:layout_toEndOf="@+id/reviews_icon"
+                android:layout_centerVertical="true"
+                android:layout_toStartOf="@+id/reviews_result"
+                android:layout_width="match_parent"
+                android:textStyle="bold"
+                android:textSize="15sp"
+                android:text="@string/gdpr_reviews_title"
+                android:layout_height="wrap_content" />
+            <TextView
+                android:id="@+id/reviews_result"
+                android:layout_toStartOf="@+id/reviews_ic"
+                android:layout_centerVertical="true"
+                android:layout_width="wrap_content"
+                android:text="@string/gdpr_result"
+                android:textSize="12sp"
+                android:layout_height="wrap_content" />
+            <ImageView
+                android:id="@+id/reviews_ic"
+                android:layout_alignParentEnd="true"
+                android:src="@drawable/back"
+                android:rotation="180"
+                android:layout_centerVertical="true"
+                android:layout_width="40dp"
+                android:layout_height="40dp" />
+
+        </RelativeLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:background="@color/black" />
+
+        <RelativeLayout
+            android:id="@+id/purchases_layout"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:layout_marginTop="1dp">
+            <ImageView
+                android:id="@+id/purchases_icon"
+                android:layout_centerVertical="true"
+                android:layout_margin="8dp"
+                android:layout_width="40dp"
+                android:src="@drawable/purchases_icon"
+                android:layout_height="40dp" />
+            <TextView
+                android:id="@+id/purchases_text"
+                android:layout_toEndOf="@+id/purchases_icon"
+                android:layout_centerVertical="true"
+                android:layout_toStartOf="@+id/purchases_result"
+                android:layout_width="match_parent"
+                android:textStyle="bold"
+                android:textSize="15sp"
+                android:text="@string/gdpr_purchases_title"
+                android:layout_height="wrap_content" />
+            <TextView
+                android:id="@+id/purchases_result"
+                android:layout_toStartOf="@+id/purchases_ic"
+                android:layout_centerVertical="true"
+                android:layout_width="wrap_content"
+                android:text="@string/gdpr_result"
+                android:textSize="12sp"
+                android:layout_height="wrap_content" />
+            <ImageView
+                android:id="@+id/purchases_ic"
+                android:layout_alignParentEnd="true"
+                android:src="@drawable/back"
+                android:rotation="180"
+                android:layout_centerVertical="true"
+                android:layout_width="40dp"
+                android:layout_height="40dp" />
+
+        </RelativeLayout>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:background="@color/black" />
+
+    </LinearLayout>
+
+</RelativeLayout>

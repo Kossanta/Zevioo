@@ -26,9 +26,13 @@ public class Splash extends AppCompatActivity {
 
     private void checkValues(){
         ApplicationPreferences preferences = ((ApplicationClass) getApplicationContext()).getAppPrefs();
-        if (preferences.getStringPreference(ApplicationPreferences.PERSONAL_PREFS, ApplicationPreferences.LOGGEDIN).equalsIgnoreCase("1")){
+        if (preferences.getStringPreference(ApplicationPreferences.PERSONAL_PREFS, ApplicationPreferences.LOGGEDIN).equalsIgnoreCase("1")
+                && preferences.isValidated()){
             // logged in
             startActivity(new Intent(this,MainActivity.class));
+        } else if (!preferences.isValidated()) {
+            // not validated
+            startActivity(new Intent(this,ValidateActivity.class));
         } else {
             // not logged in
             startActivity(new Intent(this,Start.class));
