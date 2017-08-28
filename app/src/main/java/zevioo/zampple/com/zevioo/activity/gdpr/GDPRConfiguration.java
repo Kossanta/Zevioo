@@ -41,10 +41,12 @@ public class GDPRConfiguration extends AppCompatActivity {
         mPurchasesLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                startActivity(new Intent(GDPRConfiguration.this,GDPRPurchases.class));
             }
         });
     }
+
+    
 
     private void initToolbar() {
         toolbar = (Toolbar) findViewById(R.id.toolbar);

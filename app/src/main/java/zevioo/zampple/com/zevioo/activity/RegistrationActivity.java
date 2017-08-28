@@ -19,6 +19,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import zevioo.zampple.com.zevioo.R;
+import zevioo.zampple.com.zevioo.activity.gdpr.GDPRMain;
 import zevioo.zampple.com.zevioo.application.ApplicationClass;
 import zevioo.zampple.com.zevioo.presenter.PresenterCallbacks;
 import zevioo.zampple.com.zevioo.presenter.RegistrationActivityPresenter;
@@ -207,7 +208,12 @@ public class RegistrationActivity extends AppCompatActivity implements Validator
 
     public void success(){
         if (ApplicationClass.getInstance().getAppPrefs().isValidated()){
-            startActivity(new Intent(this, MainActivity.class));
+            if (ApplicationClass.getInstance().getAppPrefs().isGDPRConsented()){
+                // is validated and is gdpr consented
+                startActivity(new Intent(this, MainActivity.class));
+            } else {
+                startActivity(new Intent(this, GDPRMain.class));
+            }
         } else {
             startActivity(new Intent(this, ValidateActivity.class));
         }

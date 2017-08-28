@@ -10,7 +10,6 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.RelativeLayout;
 
 import zevioo.zampple.com.zevioo.R;
 import zevioo.zampple.com.zevioo.application.ApplicationClass;
@@ -19,7 +18,7 @@ import zevioo.zampple.com.zevioo.presenter.PresenterCallbacks;
 import zevioo.zampple.com.zevioo.presenter.Validator;
 import zevioo.zampple.com.zevioo.view.EditView;
 
-public class LoginActivity extends AppCompatActivity implements Validator, PresenterCallbacks{
+public class LoginActivity extends AppCompatActivity implements Validator, PresenterCallbacks {
 
     EditView mEmail;
     EditView mPassword;
@@ -38,8 +37,8 @@ public class LoginActivity extends AppCompatActivity implements Validator, Prese
         parent_layout = (CoordinatorLayout) findViewById(R.id.parent_layout);
         mEmail = (EditView) findViewById(R.id.email);
         mPassword = (EditView) findViewById(R.id.password);
-        mPassword.init(getString(R.string.registration_pass),EditView.PASSWORD,this,this);
-        mEmail.init(getString(R.string.registration_email),EditView.EMAIL,this,this);
+        mPassword.init(getString(R.string.registration_pass), EditView.PASSWORD, this, this);
+        mEmail.init(getString(R.string.registration_email), EditView.EMAIL, this, this);
         presenter = new LoginActivityPresenter(this);
         initToolbar();
     }
@@ -64,8 +63,8 @@ public class LoginActivity extends AppCompatActivity implements Validator, Prese
         loginAction.setOnMenuItemClickListener(new MenuItem.OnMenuItemClickListener() {
             @Override
             public boolean onMenuItemClick(MenuItem item) {
-                if (mEmail.isValid() && mPassword.isValid()){
-                    presenter.sendLogin(mEmail.getValue(),mPassword.getValue());
+                if (mEmail.isValid() && mPassword.isValid()) {
+                    presenter.sendLogin(mEmail.getValue(), mPassword.getValue());
                 } else {
                     mEmail.validate();
                     mPassword.validate();
@@ -73,7 +72,7 @@ public class LoginActivity extends AppCompatActivity implements Validator, Prese
                 return false;
             }
         });
-        if (proceed){
+        if (proceed) {
             menu.findItem(R.id.action_login).setVisible(true);
         } else {
             menu.findItem(R.id.action_login).setVisible(false);
@@ -83,7 +82,7 @@ public class LoginActivity extends AppCompatActivity implements Validator, Prese
 
     @Override
     public boolean onPrepareOptionsMenu(Menu menu) {
-        if (proceed){
+        if (proceed) {
             menu.findItem(R.id.action_login).setVisible(true);
         } else {
             menu.findItem(R.id.action_login).setVisible(false);
@@ -91,12 +90,13 @@ public class LoginActivity extends AppCompatActivity implements Validator, Prese
         return super.onPrepareOptionsMenu(menu);
     }
 
-    public void success(){
-        if (ApplicationClass.getInstance().getAppPrefs().isValidated()){
-            startActivity(new Intent(this, MainActivity.class));
-        } else {
-            startActivity(new Intent(this, ValidateActivity.class));
-        }
+    public void success() {
+        // todo login -> main (no validation or gdpr consent only in registration use case)
+//        if (ApplicationClass.getInstance().getAppPrefs().isValidated()){
+        startActivity(new Intent(this, MainActivity.class));
+//        } else {
+//            startActivity(new Intent(this, ValidateActivity.class));
+//        }
     }
 
     @Override
@@ -114,8 +114,8 @@ public class LoginActivity extends AppCompatActivity implements Validator, Prese
         View.OnClickListener clickListener = new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (mEmail.isValid() && mPassword.isValid()){
-                    presenter.sendLogin(mEmail.getValue(),mPassword.getValue());
+                if (mEmail.isValid() && mPassword.isValid()) {
+                    presenter.sendLogin(mEmail.getValue(), mPassword.getValue());
                 } else {
                     mEmail.validate();
                     mPassword.validate();
@@ -147,7 +147,7 @@ public class LoginActivity extends AppCompatActivity implements Validator, Prese
     @Override
     public void valid() {
         currentFilledFields++;
-        if (currentFilledFields==maxFields){
+        if (currentFilledFields == maxFields) {
             proceed = true;
             invalidateOptionsMenu();
         }
