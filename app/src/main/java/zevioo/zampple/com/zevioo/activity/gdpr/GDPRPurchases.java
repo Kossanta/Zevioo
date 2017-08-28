@@ -103,6 +103,7 @@ public class GDPRPurchases extends AppCompatActivity {
                 finish();
             }
         });
+        toolbar.setTitle(getString(R.string.gdpr_purchases_title));
     }
 
     private void showAlert(final int selected) {

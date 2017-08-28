@@ -160,6 +160,7 @@ public class GDPRPreferences extends AppCompatActivity {
                 finish();
             }
         });
+        toolbar.setTitle(getString(R.string.gdpr_preferences_title));
     }
 
     private void showAlert(final int selected) {
