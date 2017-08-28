@@ -22,12 +22,10 @@
     </style>
     <style name="AlertDateDialogCustom" parent="Theme.AppCompat.Light.Dialog.Alert">
         <item name="colorPrimary">@color/colorPrimary</item>
-        <item name="android:textColorPrimary">@color/colorPrimary</item>
         <item name="colorAccent">@color/colorAccent</item>
     </style>
     <style name="AlertDialogCustom" parent="Theme.AppCompat.Light.Dialog.Alert">
         <item name="colorPrimary">@color/colorPrimary</item>
-        <item name="android:textColorPrimary">@color/colorPrimary</item>
         <item name="colorAccent">@color/colorAccent</item>
     </style>
     <style name="Registration" parent="Theme.AppCompat.Light.NoActionBar">

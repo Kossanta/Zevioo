@@ -143,11 +143,11 @@ public class GDPRPreferences extends AppCompatActivity {
                 }
             }
         });
-        mA1_toggler.setChecked(preferences.getBooleanPreference(ApplicationPreferences.PERSONAL_PREFS, ApplicationPreferences.A1));
-        mA2_toggler.setChecked(preferences.getBooleanPreference(ApplicationPreferences.PERSONAL_PREFS, ApplicationPreferences.A2));
-        mA3_toggler.setChecked(preferences.getBooleanPreference(ApplicationPreferences.PERSONAL_PREFS, ApplicationPreferences.A3));
-        mA4_toggler.setChecked(preferences.getBooleanPreference(ApplicationPreferences.PERSONAL_PREFS, ApplicationPreferences.A4));
-        mA5_toggler.setChecked(preferences.getBooleanPreference(ApplicationPreferences.PERSONAL_PREFS, ApplicationPreferences.A5));
+        mA1_toggler.setChecked(preferences.getBooleanPreference1(ApplicationPreferences.PERSONAL_PREFS, ApplicationPreferences.A1));
+        mA2_toggler.setChecked(preferences.getBooleanPreference1(ApplicationPreferences.PERSONAL_PREFS, ApplicationPreferences.A2));
+        mA3_toggler.setChecked(preferences.getBooleanPreference1(ApplicationPreferences.PERSONAL_PREFS, ApplicationPreferences.A3));
+        mA4_toggler.setChecked(preferences.getBooleanPreference1(ApplicationPreferences.PERSONAL_PREFS, ApplicationPreferences.A4));
+        mA5_toggler.setChecked(preferences.getBooleanPreference1(ApplicationPreferences.PERSONAL_PREFS, ApplicationPreferences.A5));
     }
 
     private void initToolbar() {
@@ -160,7 +160,7 @@ public class GDPRPreferences extends AppCompatActivity {
                 finish();
             }
         });
-        toolbar.setTitle(getString(R.string.gdpr_preferences_title));
+        getSupportActionBar().setTitle(getString(R.string.gdpr_preferences_title));
     }
 
     private void showAlert(final int selected) {

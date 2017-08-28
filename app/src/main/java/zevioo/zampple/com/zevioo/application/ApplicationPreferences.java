@@ -142,6 +142,19 @@ public class ApplicationPreferences {
         }
     }
 
+    // dame as getBooleanPreference but default value is true not false
+    public boolean getBooleanPreference1(String name, String key) {
+        if (name.equalsIgnoreCase(PREFS_NAME)) {
+            return prefs.getBoolean(key, true);
+        } else if (name.equalsIgnoreCase(PERSONAL_PREFS)) {
+            return personalPrefs.getBoolean(key, true);
+        } else if (name.equalsIgnoreCase(CONTRACT_PREFS)) {
+            return contractPrefs.getBoolean(key, true);
+        } else {
+            return applicationPrefs.getBoolean(key, true);
+        }
+    }
+
     public boolean isValidated() {
         return personalPrefs.getBoolean(VALIDATED, false);
     }

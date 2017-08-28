@@ -89,8 +89,8 @@ public class GDPRPurchases extends AppCompatActivity {
                 }
             }
         });
-        mC1_toggler.setChecked(preferences.getBooleanPreference(ApplicationPreferences.PERSONAL_PREFS, ApplicationPreferences.C1));
-        mC2_toggler.setChecked(preferences.getBooleanPreference(ApplicationPreferences.PERSONAL_PREFS, ApplicationPreferences.C2));
+        mC1_toggler.setChecked(preferences.getBooleanPreference1(ApplicationPreferences.PERSONAL_PREFS, ApplicationPreferences.C1));
+        mC2_toggler.setChecked(preferences.getBooleanPreference1(ApplicationPreferences.PERSONAL_PREFS, ApplicationPreferences.C2));
     }
 
     private void initToolbar() {
@@ -103,7 +103,7 @@ public class GDPRPurchases extends AppCompatActivity {
                 finish();
             }
         });
-        toolbar.setTitle(getString(R.string.gdpr_purchases_title));
+        getSupportActionBar().setTitle(getString(R.string.gdpr_purchases_title));
     }
 
     private void showAlert(final int selected) {

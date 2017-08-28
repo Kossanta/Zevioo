@@ -46,7 +46,7 @@ public class GDPRConfiguration extends AppCompatActivity {
         });
     }
 
-    
+
 
     private void initToolbar() {
         toolbar = (Toolbar) findViewById(R.id.toolbar);
@@ -58,5 +58,6 @@ public class GDPRConfiguration extends AppCompatActivity {
                 finish();
             }
         });
+        getSupportActionBar().setTitle(getString(R.string.gdpr_configuration_title));
     }
 }
