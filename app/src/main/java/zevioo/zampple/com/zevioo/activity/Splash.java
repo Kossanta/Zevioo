@@ -6,6 +6,7 @@ import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 
 import zevioo.zampple.com.zevioo.R;
+import zevioo.zampple.com.zevioo.activity.gdpr.GDPRMain;
 import zevioo.zampple.com.zevioo.application.ApplicationClass;
 import zevioo.zampple.com.zevioo.application.ApplicationPreferences;
 
@@ -27,19 +28,18 @@ public class Splash extends AppCompatActivity {
     private void checkValues() {
         ApplicationPreferences preferences = ((ApplicationClass) getApplicationContext()).getAppPrefs();
         if (preferences.getStringPreference(ApplicationPreferences.PERSONAL_PREFS, ApplicationPreferences.LOGGEDIN).equalsIgnoreCase("1")) {
-            // todo login -> main (no validation or gdpr consent only in registration use case)
-//            if (preferences.isValidated()){
-//                if (preferences.isGDPRConsented()){
-            // logged in && validated && gdpr consented
-            startActivity(new Intent(this, MainActivity.class));
-//                } else {
-            // not gdpr consented
-//                    startActivity(new Intent(this,GDPRMain.class));
-//                }
-//            } else {
-            // not validated
-//                startActivity(new Intent(this,ValidateActivity.class));
-//            }
+            if (preferences.isValidated()) {
+                if (preferences.isGDPRConsented()) {
+                    // logged in && validated && gdpr consented
+                    startActivity(new Intent(this, MainActivity.class));
+                } else {
+                    // not gdpr consented
+                    startActivity(new Intent(this, GDPRMain.class));
+                }
+            } else {
+                // not validated
+                startActivity(new Intent(this, ValidateActivity.class));
+            }
         } else {
             // not logged in
             startActivity(new Intent(this, Start.class));
