@@ -62,6 +62,14 @@
     <string name="c2_title">Στοιχεία επαφών</string>
     <string name="c2_description">Συλλέγουμε στοιχεία επικοινωνίας των φίλων σας ώστε να μπορείτε να τους προσκαλέσετε στην κοινότητα του zevioo και να ακολουθούν τις δημοσιοποιήσεις σας. Αν απενεργοποιήσετε αυτήν την επιλογή δεν θα προσκαλέσετε φίλους ενώ όλα τα στοιχεία που έχουμε ήδη θα διαγραφούν.</string>
 
+    <!-- Personalize activity -->
+    <string name="personalize_activity_title">Σχεδόν τελειώσαμε…</string>
+    <string name="personalize_activity_subtitle">Δείξτε μας τι σας ενδιαφέρει ώστε να προσαρμόσουμε την εφαρμογή στις προτιμήσεις σας.</string>
+    <string name="personalize_categories">Κατηγορίες που μ’ ενδιαφέρουν</string>
+    <string name="personalize_info">Επιπλέον πληροφορίες για μένα</string>
+    <string name="personalize_notifications">Ειδοποιήσεις &amp; Προτάσεις</string>
+    <string name="personalize_label">Μπορείτε να αλλάξετε αυτές τις επιλογές από το Προφίλ σας.</string>
+    <string name="personalize_action">Αργότερα</string>
 
     <!-- Menus -->
     <string name="menu_register">Εγγραφή</string>

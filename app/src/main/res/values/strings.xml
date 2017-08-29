@@ -63,6 +63,15 @@
     <string name="c2_title">Contacts</string>
     <string name="c2_description">We collect contact information of your friends in order for you to invite them to our community and have them follow your posts. If you disable this option you will not be able to invite your friends while all your existing data will be deleted.</string>
 
+    <!-- Personalize activity -->
+    <string name="personalize_activity_title">We ’re almost done…</string>
+    <string name="personalize_activity_subtitle">Show us your interests and we will customise the app to your preferences.</string>
+    <string name="personalize_categories">Categories of interest</string>
+    <string name="personalize_info">Additional personal information</string>
+    <string name="personalize_notifications">Notifications &amp; Recommendations</string>
+    <string name="personalize_label">You can set these options later from your Profile.</string>
+    <string name="personalize_action">Later</string>
+
     <!-- Menus -->
     <string name="menu_register">Sign up</string>
     <string name="menu_login">Sign in</string>

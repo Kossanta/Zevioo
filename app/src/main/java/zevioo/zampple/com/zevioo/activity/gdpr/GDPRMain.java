@@ -30,7 +30,7 @@ public class GDPRMain extends AppCompatActivity {
             public void onClick(View v) {
                 ApplicationPreferences preferences = ((ApplicationClass) getApplicationContext()).getAppPrefs();
                 preferences.GDPRConsented();
-                startActivity(new Intent(GDPRMain.this,MainActivity.class));
+                startActivity(new Intent(GDPRMain.this,PersonalizeActivity.class));
                 finish();
             }
         });
