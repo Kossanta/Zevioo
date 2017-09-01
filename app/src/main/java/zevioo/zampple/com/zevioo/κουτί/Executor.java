@@ -39,6 +39,23 @@ public class Executor {
         task.execute();
     }
 
+    public void deleteProfile(final String cid){
+        AsyncTask task = new AsyncTask() {
+            @Override
+            protected void onPostExecute(Object o) {
+                super.onPostExecute(o);
+                mResult.actionOk();
+            }
+
+            @Override
+            protected Object doInBackground(Object[] objects) {
+                mDb.profileModel().deleteProfileWithCustomerId(cid);
+                return null;
+            }
+        };
+        task.execute();
+    }
+
     public void editProfile(final Profile item){
         AsyncTask task = new AsyncTask() {
             @Override

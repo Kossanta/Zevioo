@@ -1,16 +1,20 @@
 package zevioo.zampple.com.zevioo.activity;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.design.widget.CoordinatorLayout;
 import android.support.design.widget.Snackbar;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
+
+import java.util.List;
 
 import zevioo.zampple.com.zevioo.R;
 import zevioo.zampple.com.zevioo.activity.gdpr.GDPRMain;
@@ -19,6 +23,7 @@ import zevioo.zampple.com.zevioo.application.ApplicationPreferences;
 import zevioo.zampple.com.zevioo.presenter.PresenterCallbacks;
 import zevioo.zampple.com.zevioo.presenter.ValidateActivityPresenter;
 import zevioo.zampple.com.zevioo.presenter.Validator;
+import zevioo.zampple.com.zevioo.κουτί.Executor;
 
 public class ValidateActivity extends AppCompatActivity implements Validator, PresenterCallbacks {
 
@@ -40,7 +45,7 @@ public class ValidateActivity extends AppCompatActivity implements Validator, Pr
         edt2 = (EditText) findViewById(R.id.edt2);
         edt3 = (EditText) findViewById(R.id.edt3);
         edt4 = (EditText) findViewById(R.id.edt4);
-        presenter = new ValidateActivityPresenter(this,edt1,edt2,edt3,edt4);
+        presenter = new ValidateActivityPresenter(this, edt1, edt2, edt3, edt4);
         initToolbar();
     }
 
@@ -51,10 +56,15 @@ public class ValidateActivity extends AppCompatActivity implements Validator, Pr
         toolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                finish();
+                informUserAboutDeletion();
             }
         });
         getSupportActionBar().setTitle("");
+    }
+
+    @Override
+    public void onBackPressed() {
+        informUserAboutDeletion();
     }
 
     @Override
@@ -142,6 +152,45 @@ public class ValidateActivity extends AppCompatActivity implements Validator, Pr
     @Override
     public void dismissWait(Snackbar bar) {
         bar.dismiss();
+    }
+
+
+    private void informUserAboutDeletion(){
+        new AlertDialog.Builder(this)
+                .setTitle(getString(R.string.validation_warning))
+                .setMessage(getString(R.string.registration_deletion))
+                .setPositiveButton(getString(R.string.ok), new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        new Executor(ValidateActivity.this, new Executor.Result() {
+                            @Override
+                            @SuppressWarnings("unchecked")
+                            public void onResultList(List listResult) {
+                            }
+
+                            @Override
+                            public void onResultItem(Object item) {
+                            }
+
+                            @Override
+                            public void insertedOk(long insertedId) {
+                            }
+                            @Override
+                            public void actionOk() {
+                                ApplicationClass.getInstance().getAppPrefs().saveStringPreference(ApplicationPreferences.PREFS_NAME,ApplicationPreferences.CID,"");
+                                ApplicationClass.getInstance().getAppPrefs().clearAll();
+                                Intent intent = new Intent(ValidateActivity.this,RegistrationActivity.class);
+                                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                                startActivity(intent);
+                                overridePendingTransition(0, 0);
+
+                            }
+                        }).deleteProfile(ApplicationClass.getInstance().getAppPrefs().getStringPreference(ApplicationPreferences.PREFS_NAME,ApplicationPreferences.CID));
+                    }
+                })
+                .setNegativeButton(getString(R.string.cancel), null)
+                .create()
+                .show();
     }
 
 }

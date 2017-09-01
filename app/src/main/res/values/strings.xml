@@ -19,6 +19,8 @@
     <string name="validate_text1">We just sent a 4-digit verification code to the email you provided in the previous step.</string>
     <string name="validate_text2">Remember to use this email account when you shop online, in order to verify the products you have tried and receive reviews of “Veriﬁed purchases”. These reviews are far more credible and attract more followers. If you use more than one email accounts, you can add them all through your Proﬁle within the app.</string>
     <string name="validate_title">Put below the 4-digit code we sent you via email.</string>
+    <string name="registration_deletion">Are you sure you want to cancel the registration process? All data will be removed.</string>
+    <string name="validation_warning">Warning</string>
     <string name="gdpr_main_text">We save and process your personal data according to the latest European Regulation (GDPR), in order to oﬀer you personalised content and services. We work with companies that produce products to constantly improve the recommendations we send you. You have full control of all your data at any given time.</string>
     <string name="gdpr_main_action1">OK. I consent</string>
     <string name="gdpr_main_action2">Privacy configuration</string>

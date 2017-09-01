@@ -159,6 +159,12 @@ public class ApplicationPreferences {
         return personalPrefs.getBoolean(VALIDATED, false);
     }
 
+    public void clearAll(){
+        saveBooleanPreference(PERSONAL_PREFS,VALIDATED,false);
+        saveBooleanPreference(PERSONAL_PREFS,GDPR,false);
+        saveStringPreference(PERSONAL_PREFS,LOGGEDIN,"0");
+    }
+
 
     public void accountIsValidated() {
         personalPrefsEditor.putBoolean(VALIDATED, true);
