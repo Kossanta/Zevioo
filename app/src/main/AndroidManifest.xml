@@ -16,6 +16,7 @@
         android:supportsRtl="true"
         android:theme="@style/StartTheme">
         <activity android:name=".activity.Splash"
+            android:noHistory="true"
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -41,6 +42,7 @@
         <activity
             android:name=".activity.ValidateActivity"
             android:theme="@style/AppTheme"
+            android:noHistory="true"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:screenOrientation="portrait"/>
         <activity
