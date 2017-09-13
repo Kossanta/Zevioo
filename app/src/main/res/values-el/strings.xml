@@ -92,4 +92,11 @@
     <string name="msg3">Είσοδος...</string>
     <string name="msg5">Επαλήθευση...</string>
     <string name="msg2">Ενημέρωση του προφίλ σας...</string>
+
+    <!-- Navigation Bottom -->
+    <string name="tab_suggestions">Προτάσεις</string>
+    <string name="tab_search">Αναζήτηση</string>
+    <string name="tab_favorites">Αγαπημένα</string>
+    <string name="tab_profile">Προφίλ</string>
+    <string name="tab_notifications">Ειδοποιήσεις</string>
 </resources>

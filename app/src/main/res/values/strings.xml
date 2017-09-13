@@ -93,4 +93,11 @@
     <string name="msg3">Logging in...</string>
     <string name="msg5">Validating...</string>
     <string name="msg2">Updating your profile...</string>
+
+    <!-- Navigation Bottom -->
+    <string name="tab_suggestions">Featured</string>
+    <string name="tab_search">Search</string>
+    <string name="tab_favorites">Favorites</string>
+    <string name="tab_profile">Profile</string>
+    <string name="tab_notifications">Notifications</string>
 </resources>

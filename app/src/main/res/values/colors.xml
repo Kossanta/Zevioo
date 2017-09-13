@@ -10,4 +10,11 @@
     <color name="lighter_gray">#a6aaa8</color>
     <color name="gdpr_bg_color">#1c8adb</color>
     <color name="gdpr_preferences_bg_color">#e6ebf0</color>
+
+    <!-- Tabs -->
+    <color name="suggest">#475c48</color>
+    <color name="search">#425661</color>
+    <color name="favorites">#475c48</color>
+    <color name="notifications">#5a4a46</color>
+    <color name="profile">#1c2021</color>
 </resources>
