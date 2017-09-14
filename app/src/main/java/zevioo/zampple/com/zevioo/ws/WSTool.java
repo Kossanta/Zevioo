@@ -1,6 +1,7 @@
 package zevioo.zampple.com.zevioo.ws;
 
 import android.content.Context;
+import android.content.Intent;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -11,6 +12,7 @@ import java.security.NoSuchAlgorithmException;
 import java.security.SecureRandom;
 import java.security.cert.X509Certificate;
 import java.util.ArrayList;
+import java.util.List;
 
 import javax.net.ssl.HostnameVerifier;
 import javax.net.ssl.HttpsURLConnection;
@@ -21,8 +23,12 @@ import javax.net.ssl.TrustManager;
 import javax.net.ssl.X509TrustManager;
 
 import zevioo.zampple.com.zevioo.R;
+import zevioo.zampple.com.zevioo.activity.RegistrationActivity;
+import zevioo.zampple.com.zevioo.activity.ValidateActivity;
 import zevioo.zampple.com.zevioo.application.ApplicationClass;
 import zevioo.zampple.com.zevioo.application.ApplicationPreferences;
+import zevioo.zampple.com.zevioo.κουτί.Executor;
+import zevioo.zampple.com.zevioo.κουτί.entity.Product;
 import zevioo.zampple.com.zevioo.κουτί.entity.SimpleItem;
 
 
@@ -39,6 +45,7 @@ public class WSTool {
     public static final int CHECK_VFCODE = 5;
     public static final int GET_COUNTRIES = 6;
     public static final int GET_LANGUAGES = 7;
+    public static final int GET_SUGGESTIONS = 8;
 
 
     public static final String SERVER_URL = "https://api.zevioo.com/mobile.svc"; //live server
@@ -161,6 +168,89 @@ public class WSTool {
             listOfCountries.add(simpleItem.fromJSON(tempCountry,type));
         }
         return listOfCountries;
+    }
+
+    /**
+     * * used for getting suggestions list
+     * Property Names:
+     * RES = Result (0 = Success, 1 = Warning, -1 = Error)
+     * MSG = Server message
+     * ITEMS = Product array
+     * CIMG = user image url (or avatar)
+     * DTX = description of user
+     * EAN = product barcode
+     * NASW = negative comment
+     * NCM = name of user
+     * OCM = overall comments ??
+     * ORT = grade
+     * PASW = positive comments
+     * PIMG = product image
+     * PNM = product title
+     * PRC = price
+     * PRID = product id
+     * RDT = posted date dd/MM/yyyy HH:mm:ss
+     * SIMG = e-shop image url
+     * SNM = e-shop name
+     * SURL = e-shop url
+     *
+     * {
+     * "MSG": "",
+     * "RES": 0,
+     * "ITEMS": [
+     *  {
+     "CIMG": "",
+     "DTX": "",
+     "EAN": "3508240000875",
+     "NASW": "",
+     "NCM": "ΙΟΥΛΊΑ Δ.",
+     "OCM": "",
+     "ORT": 5,
+     "PASW": "Αναλαφρη, απορροφαται αμέσως, δεν είναι καθόλου λιπαρη και έχει αισθητή διαφορα το δέρμα μου μετά από ενάμιση μήνα που την χρησιμοποιώ!\r\nΑπλά δεν την αλλάζω!",
+     "PIMG": "http://assets.gy.digital/RxvEi-uGWRAcf4876qtPwxFQSYc=/fit-in/350x350/filters:fill(white)/s3.gy.digital/pharmacy2go/uploads/asset/data/17141/L0036_-_SUNISSIME_-_VISAGE_SPF_30.jpg",
+     "PNM": "Lierac Sunissime Αντηλιακή λεπτόρρευστη κρέμα προστασίας SPF30 ολικής αντιγήρανσης",
+     "PRC": 16.5,
+     "PRID": "8a39c598-8a14-440b-b5a6-d7578fb817da",
+     "RDT": "16/08/2017 09:59:16",
+     "SIMG": "pharmacy2go.png",
+     "SNM": "Pharmacy2Go",
+     "SURL": "https://www.pharmacy2go.gr/"
+     } ....
+     * ],
+     * "TCNT":1003
+     * }
+     * @param response
+     * @throws JSONException
+     */
+    public ArrayList<Product> parseSuggestions(JSONObject response, final Executor.Result result) throws JSONException{
+        ArrayList<Product> listOfProducts = new ArrayList<>();
+        JSONArray list = response.getJSONArray("ITEMS");
+        for (int i=0; i<list.length();i++) {
+            JSONObject tempProduct = list.getJSONObject(i);
+            Product product = new Product();
+            listOfProducts.add(product.fromJSON(tempProduct));
+        }
+        new Executor(mContext, new Executor.Result() {
+            @Override
+            @SuppressWarnings("unchecked")
+            public void onResultList(List listResult) {
+            }
+
+            @Override
+            public void onResultItem(Object item) {
+            }
+
+            @Override
+            public void insertedOk(long insertedId) {
+            }
+            @Override
+            public void actionOk() {
+                // TODO inserted
+                result.actionOk();
+
+            }
+        }).addProducts(listOfProducts);
+
+        return listOfProducts;
     }
 
 

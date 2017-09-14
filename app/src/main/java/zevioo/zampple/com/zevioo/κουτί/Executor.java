@@ -6,6 +6,7 @@ import android.os.AsyncTask;
 import java.util.ArrayList;
 import java.util.List;
 
+import zevioo.zampple.com.zevioo.κουτί.entity.Product;
 import zevioo.zampple.com.zevioo.κουτί.entity.Profile;
 import zevioo.zampple.com.zevioo.κουτί.entity.SimpleItem;
 
@@ -205,6 +206,24 @@ public class Executor {
             @Override
             protected Object doInBackground(Object[] objects) {
                 mDb.simpleItemModel().insertAll(list);
+                return null;
+            }
+
+            @Override
+            protected void onPostExecute(Object o) {
+                super.onPostExecute(o);
+                mResult.actionOk();
+            }
+        };
+        task.execute();
+    }
+
+    public void addProducts(final ArrayList<Product> list) {
+
+        AsyncTask task = new AsyncTask() {
+            @Override
+            protected Object doInBackground(Object[] objects) {
+                mDb.productModel().insertAll(list);
                 return null;
             }
 

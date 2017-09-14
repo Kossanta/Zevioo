@@ -29,8 +29,10 @@ import android.support.v4.app.ActivityCompat;
 import java.io.File;
 
 import zevioo.zampple.com.zevioo.κουτί.converter.DateConverter;
+import zevioo.zampple.com.zevioo.κουτί.dao.ProductDAO;
 import zevioo.zampple.com.zevioo.κουτί.dao.ProfileDAO;
 import zevioo.zampple.com.zevioo.κουτί.dao.SimpleItemDAO;
+import zevioo.zampple.com.zevioo.κουτί.entity.Product;
 import zevioo.zampple.com.zevioo.κουτί.entity.Profile;
 import zevioo.zampple.com.zevioo.κουτί.entity.SimpleItem;
 
@@ -45,7 +47,7 @@ import zevioo.zampple.com.zevioo.κουτί.entity.SimpleItem;
  * On destroy
  * ZeviooDb.destroyInstance();
  */
-@Database(entities = {Profile.class, SimpleItem.class}, version = 1)
+@Database(entities = {Profile.class, SimpleItem.class, Product.class}, version = 1)
 @TypeConverters({DateConverter.class})
 public abstract class ZeviooDb extends RoomDatabase {
 
@@ -54,6 +56,8 @@ public abstract class ZeviooDb extends RoomDatabase {
     public abstract ProfileDAO profileModel();
 
     public abstract SimpleItemDAO simpleItemModel();
+
+    public abstract ProductDAO productModel();
 
 
     /**

@@ -18,11 +18,11 @@ import com.ittianyu.bottomnavigationviewex.BottomNavigationViewEx;
 import q.rorbin.badgeview.Badge;
 import q.rorbin.badgeview.QBadgeView;
 import zevioo.zampple.com.zevioo.R;
-import zevioo.zampple.com.zevioo.fragment.ItemFiveFragment;
-import zevioo.zampple.com.zevioo.fragment.ItemFourFragment;
-import zevioo.zampple.com.zevioo.fragment.ItemOneFragment;
-import zevioo.zampple.com.zevioo.fragment.ItemThreeFragment;
-import zevioo.zampple.com.zevioo.fragment.ItemTwoFragment;
+import zevioo.zampple.com.zevioo.fragment.ProfileFragment;
+import zevioo.zampple.com.zevioo.fragment.NotificationsFragment;
+import zevioo.zampple.com.zevioo.fragment.SuggestionsFragment;
+import zevioo.zampple.com.zevioo.fragment.FavoritesFragment;
+import zevioo.zampple.com.zevioo.fragment.SearchFragment;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -47,7 +47,7 @@ public class MainActivity extends AppCompatActivity {
         addBadgeAt(3,100);
         //Manually displaying the first fragment - one time only
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-        transaction.replace(R.id.frame_layout, ItemOneFragment.newInstance());
+        transaction.replace(R.id.frame_layout, SuggestionsFragment.newInstance());
         transaction.commit();
     }
 
@@ -76,19 +76,19 @@ public class MainActivity extends AppCompatActivity {
                         Fragment selectedFragment = null;
                         switch (item.getItemId()) {
                             case R.id.suggest:
-                                selectedFragment = ItemOneFragment.newInstance();
+                                selectedFragment = SuggestionsFragment.newInstance();
                                 break;
                             case R.id.search:
-                                selectedFragment = ItemTwoFragment.newInstance();
+                                selectedFragment = SearchFragment.newInstance();
                                 break;
                             case R.id.favorites:
-                                selectedFragment = ItemThreeFragment.newInstance();
+                                selectedFragment = FavoritesFragment.newInstance();
                                 break;
                             case R.id.notifications:
-                                selectedFragment = ItemFourFragment.newInstance();
+                                selectedFragment = NotificationsFragment.newInstance();
                                 break;
                             case R.id.profile:
-                                selectedFragment = ItemFiveFragment.newInstance();
+                                selectedFragment = ProfileFragment.newInstance();
                                 break;
                         }
                         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();

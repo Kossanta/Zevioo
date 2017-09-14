@@ -8,9 +8,9 @@ import android.view.ViewGroup;
 
 import zevioo.zampple.com.zevioo.R;
 
-public class ItemTwoFragment extends Fragment {
-    public static ItemTwoFragment newInstance() {
-        ItemTwoFragment fragment = new ItemTwoFragment();
+public class SearchFragment extends Fragment {
+    public static SearchFragment newInstance() {
+        SearchFragment fragment = new SearchFragment();
         return fragment;
     }
 
@@ -22,6 +22,6 @@ public class ItemTwoFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_item_two, container, false);
+        return inflater.inflate(R.layout.search_fragment, container, false);
     }
 }

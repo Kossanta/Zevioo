@@ -2,7 +2,7 @@
   "formatVersion": 1,
   "database": {
     "version": 1,
-    "identityHash": "2e7b499b9a6eac9dd0abd0ac6761c5c4",
+    "identityHash": "978e6821efeae1487d8e475e486cc984",
     "entities": [
       {
         "tableName": "Profile",
@@ -155,11 +155,105 @@
           }
         ],
         "foreignKeys": []
+      },
+      {
+        "tableName": "Product",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`prid` TEXT, `cimg` TEXT, `dtx` TEXT, `ean` TEXT, `nasw` TEXT, `ncm` TEXT, `ocm` TEXT, `ort` INTEGER, `pasw` TEXT, `pimg` TEXT, `pnm` TEXT, `prc` REAL, `pdt` INTEGER, `simg` TEXT, `snm` TEXT, `surl` TEXT, PRIMARY KEY(`prid`))",
+        "fields": [
+          {
+            "fieldPath": "productId",
+            "columnName": "prid",
+            "affinity": "TEXT"
+          },
+          {
+            "fieldPath": "userImageUrl",
+            "columnName": "cimg",
+            "affinity": "TEXT"
+          },
+          {
+            "fieldPath": "descriptionOfUser",
+            "columnName": "dtx",
+            "affinity": "TEXT"
+          },
+          {
+            "fieldPath": "productBarcode",
+            "columnName": "ean",
+            "affinity": "TEXT"
+          },
+          {
+            "fieldPath": "negativeComment",
+            "columnName": "nasw",
+            "affinity": "TEXT"
+          },
+          {
+            "fieldPath": "nameOfUser",
+            "columnName": "ncm",
+            "affinity": "TEXT"
+          },
+          {
+            "fieldPath": "overallComments",
+            "columnName": "ocm",
+            "affinity": "TEXT"
+          },
+          {
+            "fieldPath": "grade",
+            "columnName": "ort",
+            "affinity": "INTEGER"
+          },
+          {
+            "fieldPath": "positiveComment",
+            "columnName": "pasw",
+            "affinity": "TEXT"
+          },
+          {
+            "fieldPath": "productImageUrl",
+            "columnName": "pimg",
+            "affinity": "TEXT"
+          },
+          {
+            "fieldPath": "productName",
+            "columnName": "pnm",
+            "affinity": "TEXT"
+          },
+          {
+            "fieldPath": "price",
+            "columnName": "prc",
+            "affinity": "REAL"
+          },
+          {
+            "fieldPath": "postedDate",
+            "columnName": "pdt",
+            "affinity": "INTEGER"
+          },
+          {
+            "fieldPath": "eshopImageUrl",
+            "columnName": "simg",
+            "affinity": "TEXT"
+          },
+          {
+            "fieldPath": "eshopName",
+            "columnName": "snm",
+            "affinity": "TEXT"
+          },
+          {
+            "fieldPath": "redirectUrl",
+            "columnName": "surl",
+            "affinity": "TEXT"
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "prid"
+          ],
+          "autoGenerate": false
+        },
+        "indices": [],
+        "foreignKeys": []
       }
     ],
     "setupQueries": [
       "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
-      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, \"2e7b499b9a6eac9dd0abd0ac6761c5c4\")"
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, \"978e6821efeae1487d8e475e486cc984\")"
     ]
   }
 }
