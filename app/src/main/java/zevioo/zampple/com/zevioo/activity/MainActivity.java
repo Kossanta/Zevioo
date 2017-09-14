@@ -15,6 +15,9 @@ import android.widget.Toast;
 
 import com.ittianyu.bottomnavigationviewex.BottomNavigationViewEx;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import q.rorbin.badgeview.Badge;
 import q.rorbin.badgeview.QBadgeView;
 import zevioo.zampple.com.zevioo.R;
@@ -23,8 +26,9 @@ import zevioo.zampple.com.zevioo.fragment.NotificationsFragment;
 import zevioo.zampple.com.zevioo.fragment.SuggestionsFragment;
 import zevioo.zampple.com.zevioo.fragment.FavoritesFragment;
 import zevioo.zampple.com.zevioo.fragment.SearchFragment;
+import zevioo.zampple.com.zevioo.ws.WSInformer;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements WSInformer {
 
 
     BottomNavigationViewEx  bottomNavigationView;
@@ -126,5 +130,30 @@ public class MainActivity extends AppCompatActivity {
             }
         });
         return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public void onStart(int ws) {
+
+    }
+
+    @Override
+    public void onEnd(int ws) {
+
+    }
+
+    @Override
+    public void onSuccess(int ws, JSONObject response) throws JSONException {
+
+    }
+
+    @Override
+    public void onError(int ws, JSONObject response) throws JSONException {
+
+    }
+
+    @Override
+    public void onTimeout() {
+
     }
 }

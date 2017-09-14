@@ -2,6 +2,7 @@ package zevioo.zampple.com.zevioo.application;
 
 import android.app.Application;
 import android.content.Context;
+import android.content.res.Resources;
 import android.support.design.widget.Snackbar;
 import android.view.View;
 import android.widget.TextView;
@@ -50,6 +51,10 @@ public class ApplicationClass extends Application {
     protected void attachBaseContext(Context base) {
         // TODO here get the users prefered language from shared preferencies
         super.attachBaseContext(LocaleHelper.onAttach(base, "el"));
+    }
+
+    public static int dpToPx(int dp) {
+        return (int) (dp * Resources.getSystem().getDisplayMetrics().density);
     }
 
     public static ApplicationClass getInstance() {

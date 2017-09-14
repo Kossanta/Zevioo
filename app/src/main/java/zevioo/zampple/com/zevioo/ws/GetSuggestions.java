@@ -28,9 +28,11 @@ public class GetSuggestions extends AsyncTask<Void, Void, Void> {
 
     private String mRequest;
     private WSInformer mInformer;
+    private String mCid;
 
-    public GetSuggestions(WSInformer wsInformer) {
+    public GetSuggestions(WSInformer wsInformer, String customerId) {
         this.mInformer = wsInformer;
+        this.mCid = customerId;
         mRequest = getRequest();
     }
 
@@ -125,6 +127,8 @@ public class GetSuggestions extends AsyncTask<Void, Void, Void> {
      */
     private JSONObject getRequest1() throws JSONException {
         JSONObject object = new JSONObject();
+//        object.put("CID", mCid);
+        // TODO for debugging use this
         object.put("CID", "7962b7cb-616a-4dc8-9df0-86816a6e13ec");
         return object;
     }

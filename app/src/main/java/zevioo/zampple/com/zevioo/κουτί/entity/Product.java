@@ -58,7 +58,7 @@ public class Product {
     private String productName;
     @ColumnInfo(name = "prc")
     private double price;
-    @ColumnInfo(name = "pdt")
+    @ColumnInfo(name = "rdt")
     private Date postedDate;
     @ColumnInfo(name = "simg")
     private String eshopImageUrl;
@@ -239,8 +239,8 @@ public class Product {
             this.postedDate = formater.parse(object.optString("RDT"));
         } catch (ParseException e) {
             e.printStackTrace();
+            this.postedDate = null;
         }
-        this.postedDate = null;
         this.eshopImageUrl = object.optString("SIMG");
         this.eshopName = object.optString("SNM");
         this.redirectUrl = object.optString("SURL");

@@ -221,7 +221,11 @@ public class WSTool {
      * @param response
      * @throws JSONException
      */
-    public ArrayList<Product> parseSuggestions(JSONObject response, final Executor.Result result) throws JSONException{
+    public
+//    ArrayList<Product>
+    void parseSuggestions(JSONObject response
+           // , final Executor.Result result
+    ) throws JSONException{
         ArrayList<Product> listOfProducts = new ArrayList<>();
         JSONArray list = response.getJSONArray("ITEMS");
         for (int i=0; i<list.length();i++) {
@@ -244,13 +248,13 @@ public class WSTool {
             }
             @Override
             public void actionOk() {
-                // TODO inserted
-                result.actionOk();
+//                // TODO inserted
+//                result.actionOk();
 
             }
         }).addProducts(listOfProducts);
 
-        return listOfProducts;
+//        return listOfProducts;
     }
 
 
