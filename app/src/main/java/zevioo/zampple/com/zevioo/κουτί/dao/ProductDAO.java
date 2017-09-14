@@ -25,6 +25,7 @@ import android.arch.persistence.room.Update;
 import java.util.List;
 
 import zevioo.zampple.com.zevioo.κουτί.entity.Product;
+import zevioo.zampple.com.zevioo.κουτί.entity.Profile;
 import zevioo.zampple.com.zevioo.κουτί.entity.SimpleItem;
 
 import static android.arch.persistence.room.OnConflictStrategy.IGNORE;

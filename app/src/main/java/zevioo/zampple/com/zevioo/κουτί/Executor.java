@@ -236,6 +236,17 @@ public class Executor {
         task.execute();
     }
 
+    public void addProduct(final Product item){
+        AsyncTask task = new AsyncTask() {
+            @Override
+            protected Object doInBackground(Object[] objects) {
+                mResult.insertedOk(mDb.productModel().insertProduct(item));
+                return null;
+            }
+        };
+        task.execute();
+    }
+
 
     public interface Result {
         void onResultList(List listResult);
