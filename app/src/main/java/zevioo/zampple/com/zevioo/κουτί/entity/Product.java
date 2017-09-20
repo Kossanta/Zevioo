@@ -20,6 +20,7 @@ import android.arch.persistence.room.ColumnInfo;
 import android.arch.persistence.room.Entity;
 import android.arch.persistence.room.Ignore;
 import android.arch.persistence.room.PrimaryKey;
+import android.content.Context;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -27,6 +28,9 @@ import org.json.JSONObject;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.concurrent.TimeUnit;
+
+import zevioo.zampple.com.zevioo.R;
 
 /**
  * Created by kgiannoulis on 18/8/2017
@@ -89,7 +93,7 @@ public class Product {
     }
 
     @Ignore
-    public Product(){
+    public Product() {
 
     }
 
@@ -245,5 +249,31 @@ public class Product {
         this.eshopName = object.optString("SNM");
         this.redirectUrl = object.optString("SURL");
         return this;
+    }
+
+    public String calculateTime(Context context) {
+        int minutes;
+        int hours;
+        int seconds;
+        int days;
+        Date now = new Date();
+        minutes = (int)TimeUnit.MILLISECONDS.toMinutes(now.getTime() - postedDate.getTime());
+        hours = (int)TimeUnit.MILLISECONDS.toHours(now.getTime() - postedDate.getTime());
+        days = (int)TimeUnit.MILLISECONDS.toDays(now.getTime() - postedDate.getTime());
+        seconds = (int)TimeUnit.MILLISECONDS.toSeconds(now.getTime() - postedDate.getTime());
+
+        if (days != 0) {
+            return context.getResources().getQuantityString(R.plurals.days,
+                    days, days);
+        } else if (hours != 0) {
+            return context.getResources().getQuantityString(R.plurals.hours,
+                    hours, hours);
+        } else if (minutes != 0) {
+            return context.getResources().getQuantityString(R.plurals.minutes,
+                    minutes, minutes);
+        } else {
+            return context.getResources().getQuantityString(R.plurals.seconds,
+                    seconds, seconds);
+        }
     }
 }

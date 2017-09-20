@@ -40,7 +40,7 @@ public interface ProductDAO {
     @Query("select * from Product where prid = :prid")
     Product getProductById(String prid);
 
-    @Query("SELECT * FROM Product")
+    @Query("SELECT * FROM Product ORDER BY rdt DESC")
     LiveData<List<Product>> findAllProducts();
 
     @Insert(onConflict = IGNORE)

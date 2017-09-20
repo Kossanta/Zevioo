@@ -100,4 +100,28 @@
     <string name="tab_favorites">Favorites</string>
     <string name="tab_profile">Profile</string>
     <string name="tab_notifications">Notifications</string>
+
+    <!-- Suggestions -->
+    <string name="verified">Verified Purchase</string>
+    <string name="useful_title">You consider the evaluation above helpful?</string>
+    <string name="follow">Follow</string>
+
+
+    <!-- Time passed -->
+    <plurals name="hours">
+        <item quantity="one">an hour ago</item>
+        <item quantity="other">%d hours ago</item>
+    </plurals>
+    <plurals name="minutes">
+        <item quantity="one">a minute ago</item>
+        <item quantity="other">%d minutes ago</item>
+    </plurals>
+    <plurals name="seconds">
+        <item quantity="one">a second ago</item>
+        <item quantity="other">%d seconds ago</item>
+    </plurals>
+    <plurals name="days">
+        <item quantity="one">a day ago</item>
+        <item quantity="other">%d days ago</item>
+    </plurals>
 </resources>

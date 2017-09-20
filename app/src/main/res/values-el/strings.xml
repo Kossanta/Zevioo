@@ -99,4 +99,27 @@
     <string name="tab_favorites">Αγαπημένα</string>
     <string name="tab_profile">Προφίλ</string>
     <string name="tab_notifications">Ειδοποιήσεις</string>
+
+    <!-- Suggestions -->
+    <string name="verified">Επιβεβαιωμένη Αγορά</string>
+    <string name="userful_title">Θεωρείτε χρήσιμη την παραπάνω αξιολόγηση;</string>
+    <string name="follow">Ακολούθα</string>
+
+    <!-- Time passed -->
+    <plurals name="hours">
+        <item quantity="one">μια ώρα πριν</item>
+        <item quantity="other">%d ώρες πριν</item>
+    </plurals>
+    <plurals name="minutes">
+        <item quantity="one">ένα λεπτό πριν</item>
+        <item quantity="other">%d λεπτά πριν</item>
+    </plurals>
+    <plurals name="seconds">
+        <item quantity="one">ένα δευτερόλεπτο πριν</item>
+        <item quantity="other">%d δευτερόλεπτα πριν</item>
+    </plurals>
+    <plurals name="days">
+        <item quantity="one">μια μέρα πριν</item>
+        <item quantity="other">%d μέρες πριν</item>
+    </plurals>
 </resources>
