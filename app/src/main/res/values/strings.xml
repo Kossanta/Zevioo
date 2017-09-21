@@ -124,4 +124,10 @@
         <item quantity="one">a day ago</item>
         <item quantity="other">%d days ago</item>
     </plurals>
+
+
+    <plurals name="new_items">
+        <item quantity="one">1 New suggestion</item>
+        <item quantity="other">%d New suggestions</item>
+    </plurals>
 </resources>

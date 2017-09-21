@@ -61,10 +61,15 @@ public class SuggestionsAdapter extends RecyclerView.Adapter<SuggestionsAdapter.
             Picasso.with(activity).load(product.getUserImageUrl()).resize(ApplicationClass.dpToPx(32),ApplicationClass.dpToPx(32)).centerCrop().transform(new CircleTransform())
                     .into(holder.mUserAvatar);
         }
-        Picasso.with(activity).load(product.getProductImageUrl()).resize(ApplicationClass.dpToPx(240),ApplicationClass.dpToPx(240)).centerCrop()
-                .into(holder.mProductImage);
-        Picasso.with(activity).load(product.getProductImageUrl()).resize(ApplicationClass.dpToPx(64),ApplicationClass.dpToPx(64)).centerCrop()
-                .into(holder.mSmallProductImage);
+        if (!product.getProductImageUrl().equalsIgnoreCase("")) {
+            Picasso.with(activity).load(product.getProductImageUrl()).resize(ApplicationClass.dpToPx(240), ApplicationClass.dpToPx(240)).centerCrop()
+                    .into(holder.mProductImage);
+            Picasso.with(activity).load(product.getProductImageUrl()).resize(ApplicationClass.dpToPx(64), ApplicationClass.dpToPx(64)).centerCrop()
+                    .into(holder.mSmallProductImage);
+        }
+        if (!product.getDescriptionOfUser().equalsIgnoreCase("")){
+            holder.mUserDescription.setText(product.getDescriptionOfUser());
+        }
         // todo show hide valid purchase
 //        if (product.isValid()){
 //            holder.mVerifiedText.setVisibility(View.VISIBLE);
@@ -180,7 +185,7 @@ public class SuggestionsAdapter extends RecyclerView.Adapter<SuggestionsAdapter.
 
     public static class SuggestHolder extends RecyclerView.ViewHolder {
 
-        protected TextView mUserName, mGrade, mProsCommnet, mConsComment, mVerifiedText, mProductName,mProductCategory,mTotalGrade, mTotalComments, mTotalPositive, mTotalNegative, mTimestamp;
+        protected TextView mUserName, mGrade, mProsCommnet, mConsComment, mVerifiedText, mProductName,mProductCategory,mTotalGrade, mTotalComments, mTotalPositive, mTotalNegative, mTimestamp, mUserDescription;
         protected ImageView mStar, mPros, mCons, mProductImage, mSmallProductImage, mActions, mVerifiedIcon, mArrowImg, mLike, mDisLike, mComments;
         protected ImageView mUser1, mUser2, mUser3, mUser4, mUser5, mUser6, mUserAvatar;
         protected ImageView mStar1,mStar2,mStar3,mStar4,mStar5;
@@ -190,6 +195,7 @@ public class SuggestionsAdapter extends RecyclerView.Adapter<SuggestionsAdapter.
 
         public SuggestHolder(View v) {
             super(v);
+            mUserDescription = (TextView) v.findViewById(R.id.user_description);
             mTimestamp = (TextView) v.findViewById(R.id.timestamp);
             mVerifiedText = (TextView) v.findViewById(R.id.verified_text);
             mProductName = (TextView) v.findViewById(R.id.product_name);

@@ -122,4 +122,9 @@
         <item quantity="one">μια μέρα πριν</item>
         <item quantity="other">%d μέρες πριν</item>
     </plurals>
+
+    <plurals name="new_items">
+        <item quantity="one">1 Νέα πρόταση</item>
+        <item quantity="other">%d Νέες προτάσεις</item>
+    </plurals>
 </resources>

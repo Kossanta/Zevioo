@@ -12,20 +12,29 @@ import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.RecyclerView.OnScrollListener;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.AlphaAnimation;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
+import android.widget.ImageView;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
 
 import java.util.List;
 
 import zevioo.zampple.com.zevioo.R;
 import zevioo.zampple.com.zevioo.adapter.SuggestionsAdapter;
+import zevioo.zampple.com.zevioo.application.ApplicationClass;
 import zevioo.zampple.com.zevioo.presenter.SuggestionsFragmentPresenter;
 import zevioo.zampple.com.zevioo.tools.InternetStatus;
 import zevioo.zampple.com.zevioo.κουτί.entity.Product;
 
-public class SuggestionsFragment extends LifecycleFragment {
+public class SuggestionsFragment extends LifecycleFragment{
 
     private SuggestionsAdapter mAdapter;
     private SuggestionsFragmentViewModel mViewModel;
@@ -33,6 +42,9 @@ public class SuggestionsFragment extends LifecycleFragment {
     private RecyclerView mRecyclerView;
     private SwipeRefreshLayout mRefreshLayout;
     private boolean refreshing;
+    private LinearLayoutManager mLayoutManager;
+    private RelativeLayout mNewLayout;
+    private TextView mNewText;
 
     public static SuggestionsFragment newInstance() {
         SuggestionsFragment fragment = new SuggestionsFragment();
@@ -51,7 +63,8 @@ public class SuggestionsFragment extends LifecycleFragment {
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.suggestions_fragment, container, false);
         mRecyclerView = (RecyclerView) view.findViewById(R.id.suggestions_list);
-        mRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
+        mLayoutManager = new LinearLayoutManager(getActivity());
+        mRecyclerView.setLayoutManager(mLayoutManager);
         mRecyclerView.setItemAnimator(new DefaultItemAnimator());
         mRefreshLayout = (SwipeRefreshLayout) view.findViewById(R.id.swipeRefreshLayout);
         mRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
@@ -67,7 +80,20 @@ public class SuggestionsFragment extends LifecycleFragment {
                 }
             }
         });
+        mRecyclerView.addOnScrollListener(new OnScrollListener() {
+            @Override
+            public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
+                int pastVisibleItems = mLayoutManager.findFirstCompletelyVisibleItemPosition();
+                if (pastVisibleItems  == 0) {
+                    mNewLayout.setVisibility(View.GONE);
+                    mNewLayout.clearAnimation();
+                }
+            }
+        });
         mRefreshLayout.setRefreshing(refreshing);
+        mNewLayout = (RelativeLayout) view.findViewById(R.id.new_layout);
+        mNewText = (TextView) view.findViewById(R.id.new_text);
+        mNewLayout.setVisibility(View.GONE);
         return view;
     }
 
@@ -144,6 +170,10 @@ public class SuggestionsFragment extends LifecycleFragment {
             mAdapter = new SuggestionsAdapter(list, getActivity());
             mRecyclerView.setAdapter(mAdapter);
         } else {
+            if (mLayoutManager.findFirstVisibleItemPosition() != 0) {
+                // is not on top
+                showNotifier(list.size() - mAdapter.getData().size());
+            }
             mAdapter.setData(list);
             mAdapter.notifyDataSetChanged();
         }
@@ -157,6 +187,30 @@ public class SuggestionsFragment extends LifecycleFragment {
                 // todo show need internet connection
             }
         }
+    }
+
+    private void showNotifier(int newItems) {
+        Animation fadeIn = new AlphaAnimation(0.0f,1.0f);
+        fadeIn.setDuration(400);
+        fadeIn.setFillAfter(true);
+        fadeIn.setAnimationListener(new Animation.AnimationListener() {
+            @Override
+            public void onAnimationStart(Animation animation) {
+                mNewLayout.setVisibility(View.VISIBLE);
+            }
+
+            @Override
+            public void onAnimationEnd(Animation animation) {
+            }
+
+            @Override
+            public void onAnimationRepeat(Animation animation) {
+
+            }
+        });
+        mNewText.setText(getActivity().getResources().getQuantityString(R.plurals.new_items,
+                newItems, newItems));
+        mNewLayout.startAnimation(fadeIn);
     }
 
 
