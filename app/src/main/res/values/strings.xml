@@ -130,4 +130,13 @@
         <item quantity="one">1 New suggestion</item>
         <item quantity="other">%d New suggestions</item>
     </plurals>
+
+    <!-- Actions -->
+    <string name="save_action_title">Save recommendation</string>
+    <string name="save_action_subtitle">Add this recommendation to your favorites</string>
+    <string name="unfollow_cat_action_title">Stop following member in this category</string>
+    <string name="unfollow_cat_action_subtitle">Stop seeing recommendations from this member for this category</string>
+    <string name="unfollow_action_title">Stop following member generally</string>
+    <string name="unfollow_action_subtitle">Stop seeing recommendations from member</string>
+    <string name="report_action_title">Report this post</string>
 </resources>

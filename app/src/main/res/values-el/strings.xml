@@ -103,7 +103,7 @@
     <!-- Suggestions -->
     <string name="verified">Επιβεβαιωμένη Αγορά</string>
     <string name="userful_title">Θεωρείτε χρήσιμη την παραπάνω αξιολόγηση;</string>
-    <string name="follow">Ακολούθα</string>
+    <string name="follow">Ακολουθα</string>
 
     <!-- Time passed -->
     <plurals name="hours">
@@ -127,4 +127,13 @@
         <item quantity="one">1 Νέα πρόταση</item>
         <item quantity="other">%d Νέες προτάσεις</item>
     </plurals>
+
+    <!-- Actions -->
+    <string name="save_action_title">Αποθήκευση πρότασης</string>
+    <string name="save_action_subtitle">Αποθήκευσε την πρόταση στα αγαπημένα</string>
+    <string name="unfollow_cat_action_title">Να μην ακολουθώ αυτό το μέλος στην κατηγορία</string>
+    <string name="unfollow_cat_action_subtitle">Να μην βλέπω προτάσεις από αυτό το μέλος στην κατηγορία</string>
+    <string name="unfollow_action_title">Να μην ακολουθώ αυτό το μέλος γενικά</string>
+    <string name="unfollow_action_subtitle">Να μην βλέπω προτάσεις από αυτό το μέλος</string>
+    <string name="report_action_title">Αναφορά της δημοσίευσης</string>
 </resources>

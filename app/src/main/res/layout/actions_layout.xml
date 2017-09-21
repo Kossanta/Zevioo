@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/fragment_history_menu_bottom"
+    android:layout_width="match_parent"
+    android:layout_height="240dp"
+    android:background="#ffffff"
+    android:orientation="vertical"
+    app:layout_behavior="android.support.design.widget.BottomSheetBehavior">
+
+    <RelativeLayout
+        android:id="@+id/action_save"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:clickable="true"
+        android:focusable="true"
+        android:padding="8dp">
+
+        <ImageView
+            android:id="@+id/save_icon"
+            android:src="@drawable/fav_add"
+            android:layout_width="35dp"
+            android:layout_marginStart="4dp"
+            android:layout_centerVertical="true"
+            android:layout_height="35dp" />
+
+        <TextView
+            android:id="@+id/save_title"
+            android:text="@string/save_action_title"
+            android:layout_width="wrap_content"
+            android:layout_alignTop="@+id/save_icon"
+            android:layout_height="wrap_content"
+            android:textSize="12sp"
+            android:layout_alignStart="@+id/save_subtitle" />
+        <TextView
+            android:id="@+id/save_subtitle"
+            android:layout_below="@+id/save_title"
+            android:layout_toEndOf="@+id/save_icon"
+            android:text="@string/save_action_subtitle"
+            android:gravity="center_vertical"
+            android:layout_alignBottom="@+id/save_icon"
+            android:textSize="9sp"
+            android:layout_marginStart="8dp"
+            android:layout_width="wrap_content"
+            android:layout_height="14dp"/>
+    </RelativeLayout>
+    <RelativeLayout
+        android:id="@+id/action_unfollow_cat"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:clickable="true"
+        android:focusable="true"
+        android:padding="8dp">
+
+        <ImageView
+            android:id="@+id/unfollow_cat_icon"
+            android:src="@drawable/unfollow_on_category"
+            android:layout_width="35dp"
+            android:layout_marginStart="4dp"
+            android:layout_centerVertical="true"
+            android:layout_height="35dp" />
+
+        <TextView
+            android:id="@+id/unfollow_cat_title"
+            android:textSize="12sp"
+            android:layout_toEndOf="@+id/unfollow_cat_icon"
+            android:text="@string/unfollow_cat_action_title"
+            android:layout_marginStart="8dp"
+            android:layout_width="wrap_content"
+            android:layout_alignTop="@+id/unfollow_cat_icon"
+            android:layout_height="wrap_content"/>
+        <TextView
+            android:id="@+id/unfollow_cat_subtitle"
+            android:layout_below="@+id/unfollow_cat_title"
+            android:layout_toEndOf="@+id/unfollow_cat_icon"
+            android:text="@string/unfollow_cat_action_subtitle"
+            android:gravity="center_vertical"
+            android:layout_alignBottom="@+id/unfollow_cat_icon"
+            android:textSize="9sp"
+            android:layout_marginStart="8dp"
+            android:layout_width="wrap_content"
+            android:layout_height="14dp"/>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/action_unfollow"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:clickable="true"
+        android:focusable="true"
+        android:padding="8dp">
+
+        <ImageView
+            android:id="@+id/unfollow_icon"
+            android:layout_width="35dp"
+            android:layout_marginStart="4dp"
+            android:layout_centerVertical="true"
+            android:layout_height="35dp"
+            android:src="@drawable/unfollow_user" />
+
+        <TextView
+            android:id="@+id/unfollow_title"
+            android:layout_width="wrap_content"
+            android:layout_alignTop="@+id/unfollow_icon"
+            android:layout_height="wrap_content"
+            android:textSize="12sp"
+            android:layout_marginStart="8dp"
+            android:layout_toEndOf="@+id/unfollow_icon"
+            android:text="@string/unfollow_action_title" />
+
+        <TextView
+            android:id="@+id/unfollow_subtitle"
+            android:layout_below="@+id/unfollow_title"
+            android:layout_toEndOf="@+id/unfollow_icon"
+            android:text="@string/unfollow_action_subtitle"
+            android:gravity="center_vertical"
+            android:layout_alignBottom="@+id/unfollow_icon"
+            android:textSize="9sp"
+            android:layout_marginStart="8dp"
+            android:layout_width="wrap_content"
+            android:layout_height="14dp"/>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/action_report"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:clickable="true"
+        android:focusable="true"
+        android:padding="8dp">
+
+        <ImageView
+            android:id="@+id/report_icon"
+            android:src="@drawable/report"
+            android:layout_width="35dp"
+            android:layout_marginStart="4dp"
+            android:layout_centerVertical="true"
+            android:layout_height="35dp" />
+
+        <TextView
+            android:id="@+id/report_title"
+            android:layout_toEndOf="@+id/report_icon"
+            android:text="@string/report_action_title"
+            android:layout_marginStart="8dp"
+            android:gravity="center_vertical"
+            android:textSize="12sp"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"/>
+    </RelativeLayout>
+</LinearLayout>

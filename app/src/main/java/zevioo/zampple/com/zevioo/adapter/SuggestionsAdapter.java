@@ -1,10 +1,12 @@
 package zevioo.zampple.com.zevioo.adapter;
 
 import android.app.Activity;
+import android.support.design.widget.BottomSheetDialog;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
@@ -61,15 +63,21 @@ public class SuggestionsAdapter extends RecyclerView.Adapter<SuggestionsAdapter.
             Picasso.with(activity).load(product.getUserImageUrl()).resize(ApplicationClass.dpToPx(32),ApplicationClass.dpToPx(32)).centerCrop().transform(new CircleTransform())
                     .into(holder.mUserAvatar);
         }
+        holder.mFollow.setTag(product);
+        holder.mFollow.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // todo here follow member WS
+//                showActions((Product)v.getTag());
+            }
+        });
         if (!product.getProductImageUrl().equalsIgnoreCase("")) {
             Picasso.with(activity).load(product.getProductImageUrl()).resize(ApplicationClass.dpToPx(240), ApplicationClass.dpToPx(240)).centerCrop()
                     .into(holder.mProductImage);
             Picasso.with(activity).load(product.getProductImageUrl()).resize(ApplicationClass.dpToPx(64), ApplicationClass.dpToPx(64)).centerCrop()
                     .into(holder.mSmallProductImage);
         }
-        if (!product.getDescriptionOfUser().equalsIgnoreCase("")){
-            holder.mUserDescription.setText(product.getDescriptionOfUser());
-        }
+        holder.mUserDescription.setText(product.getDescriptionOfUser().equalsIgnoreCase("") ? "Dummy description" : product.getDescriptionOfUser());
         // todo show hide valid purchase
 //        if (product.isValid()){
 //            holder.mVerifiedText.setVisibility(View.VISIBLE);
@@ -123,6 +131,14 @@ public class SuggestionsAdapter extends RecyclerView.Adapter<SuggestionsAdapter.
             holder.mProsCommnet.setVisibility(View.VISIBLE);
             holder.mProsCommnet.setText(product.getPositiveComment());
         }
+    }
+
+    // todo this one is to show actions
+    private void showActions(Product product){
+        BottomSheetDialog mBottomSheetDialog = new BottomSheetDialog(activity);
+        View sheetView = activity.getLayoutInflater().inflate(R.layout.actions_layout, null);
+        mBottomSheetDialog.setContentView(sheetView);
+        mBottomSheetDialog.show();
     }
 
     private int calculateStar(SuggestHolder holder,int grade){
@@ -191,6 +207,7 @@ public class SuggestionsAdapter extends RecyclerView.Adapter<SuggestionsAdapter.
         protected ImageView mStar1,mStar2,mStar3,mStar4,mStar5;
         protected RelativeLayout mFrame;
         protected ProgressBar mProgress;
+        protected Button mFollow;
 
 
         public SuggestHolder(View v) {
@@ -218,6 +235,7 @@ public class SuggestionsAdapter extends RecyclerView.Adapter<SuggestionsAdapter.
             mDisLike = (ImageView) v.findViewById(R.id.dislike_icon);
             mComments = (ImageView) v.findViewById(R.id.comment);
 
+            mFollow = (Button) v.findViewById(R.id.btn_follow);
             mProgress = (ProgressBar) v.findViewById(R.id.progress);
             mProgress.setVisibility(View.GONE);
             mActions = (ImageView) v.findViewById(R.id.actions);
