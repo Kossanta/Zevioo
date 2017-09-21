@@ -352,7 +352,7 @@
                 android:layout_toEndOf="@+id/user1"
                 android:layout_alignTop="@+id/like_icon"
                 android:layout_alignBottom="@+id/like_icon"
-                android:layout_marginStart="4dp" />
+                android:layout_marginStart="1dp" />
            <ImageView
                 android:id="@+id/user3"
                 android:layout_width="16dp"
@@ -361,7 +361,7 @@
                 android:layout_toEndOf="@+id/user2"
                 android:layout_alignTop="@+id/like_icon"
                 android:layout_alignBottom="@+id/like_icon"
-                android:layout_marginStart="4dp" />
+               android:layout_marginStart="1dp" />
             <ImageView
                 android:id="@+id/user4"
                 android:layout_width="16dp"
@@ -370,7 +370,7 @@
                 android:layout_toEndOf="@+id/user3"
                 android:layout_alignTop="@+id/like_icon"
                 android:layout_alignBottom="@+id/like_icon"
-                android:layout_marginStart="4dp" />
+                android:layout_marginStart="1dp" />
             <ImageView
                 android:id="@+id/user5"
                 android:layout_width="16dp"
@@ -379,7 +379,7 @@
                 android:layout_toEndOf="@+id/user4"
                 android:layout_alignTop="@+id/like_icon"
                 android:layout_alignBottom="@+id/like_icon"
-                android:layout_marginStart="4dp" />
+                android:layout_marginStart="1dp" />
             <ImageView
                 android:id="@+id/user6"
                 android:layout_width="16dp"
@@ -388,7 +388,7 @@
                 android:layout_toEndOf="@+id/user5"
                 android:layout_alignTop="@+id/like_icon"
                 android:layout_alignBottom="@+id/like_icon"
-                android:layout_marginStart="4dp" />
+                android:layout_marginStart="1dp" />
             <ImageView
                 android:src="@drawable/useful"
                 android:id="@+id/dislike_icon"

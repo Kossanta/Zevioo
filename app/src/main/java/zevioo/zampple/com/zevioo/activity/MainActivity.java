@@ -18,25 +18,20 @@ import com.ittianyu.bottomnavigationviewex.BottomNavigationViewEx;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.util.Date;
-import java.util.List;
-
 import q.rorbin.badgeview.Badge;
 import q.rorbin.badgeview.QBadgeView;
 import zevioo.zampple.com.zevioo.R;
-import zevioo.zampple.com.zevioo.fragment.ProfileFragment;
-import zevioo.zampple.com.zevioo.fragment.NotificationsFragment;
-import zevioo.zampple.com.zevioo.fragment.SuggestionsFragment;
 import zevioo.zampple.com.zevioo.fragment.FavoritesFragment;
+import zevioo.zampple.com.zevioo.fragment.NotificationsFragment;
+import zevioo.zampple.com.zevioo.fragment.ProfileFragment;
 import zevioo.zampple.com.zevioo.fragment.SearchFragment;
+import zevioo.zampple.com.zevioo.fragment.SuggestionsFragment;
 import zevioo.zampple.com.zevioo.ws.WSInformer;
-import zevioo.zampple.com.zevioo.κουτί.Executor;
-import zevioo.zampple.com.zevioo.κουτί.entity.Product;
 
 public class MainActivity extends AppCompatActivity implements WSInformer {
 
 
-    BottomNavigationViewEx  bottomNavigationView;
+    BottomNavigationViewEx bottomNavigationView;
     Toolbar toolbar;
     Typeface custom_font;
     TextView mTitle;
@@ -45,7 +40,7 @@ public class MainActivity extends AppCompatActivity implements WSInformer {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main_activity);
-        custom_font = Typeface.createFromAsset(getAssets(),  "fonts/hobo_std_medium.ttf");
+        custom_font = Typeface.createFromAsset(getAssets(), "fonts/hobo_std_medium.ttf");
         mTitle = (TextView) findViewById(R.id.title);
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         bottomNavigationView = (BottomNavigationViewEx)
@@ -53,14 +48,14 @@ public class MainActivity extends AppCompatActivity implements WSInformer {
         initViews();
 
         // ADD badge
-        addBadgeAt(3,100);
+        addBadgeAt(3, 100);
         //Manually displaying the first fragment - one time only
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
         transaction.replace(R.id.frame_layout, SuggestionsFragment.newInstance());
         transaction.commit();
     }
 
-    private void initViews(){
+    private void initViews() {
         mTitle.setText("zevioo");
         mTitle.setTypeface(custom_font);
         setSupportActionBar(toolbar);
@@ -68,7 +63,7 @@ public class MainActivity extends AppCompatActivity implements WSInformer {
         toolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(MainActivity.this,"Click icon",Toast.LENGTH_LONG).show();
+                Toast.makeText(MainActivity.this, "Click icon", Toast.LENGTH_LONG).show();
             }
         });
         getSupportActionBar().setTitle("");
@@ -162,29 +157,4 @@ public class MainActivity extends AppCompatActivity implements WSInformer {
 
     }
 
-    @Override
-    public void onBackPressed() {
-        Product product = new Product("123456789","https://s-media-cache-ak0.pinimg.com/originals/74/b5/84/74b584c07d7f5601bcea7e16daced8b3.jpg","Magkas","123456","Malakia einai","Katsamitsos","100",2,"Metriotita","https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQS2N0fES7D2XvwJVvmlFsn5XDWzoB5PiWDLqQJDHQN86VWgTux","Tirmpouson",12.50d,new Date(),"","","");
-        new Executor(this, new Executor.Result() {
-            @Override
-            public void onResultList(List listResult) {
-
-            }
-
-            @Override
-            public void onResultItem(Object item) {
-
-            }
-
-            @Override
-            public void insertedOk(long insertedId) {
-
-            }
-
-            @Override
-            public void actionOk() {
-
-            }
-        }).addProduct(product);
-    }
 }
